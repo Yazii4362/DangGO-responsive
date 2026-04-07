@@ -1,92 +1,631 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* =============================================
+   DangGO — common.css
+   4배수 타이포 시스템 · 디자인 토큰 · 컴포넌트
+   ============================================= */
 
-body {
-    font-family: 'Pretendard', sans-serif;
-    background-color: #F5F278;
-    color: #1E1E1E;
-    line-height: 1.5;
-}
-
-.container {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-.section-title {
-    font-family: 'TMoneyDungunbaram', sans-serif;
-    font-size: 32px;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 16px;
-    color: #1E1E1E;
-}
-
-.section-sub {
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 48px;
-    color: #555;
-}
-
-.badge-pill {
-    display: inline-block;
-    background-color: #302F32;
-    color: #F9F4EE;
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 500;
-}
-
-.stars {
-    color: #FFB800;
-    letter-spacing: 2px;
-    font-size: 14px;
-}
-
-.rating-num {
-    font-weight: 600;
-    margin-left: 6px;
-}
-
-/* 폰트 */
+/* ─── 0. FONT FACES ─────────────────────────── */
 @font-face {
-    font-family: 'TMoneyDungunbaram';
+    font-family: 'TmoneyRoundWind';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindRegular.woff') format('woff');
     font-weight: 400;
+    font-display: swap;
 }
 @font-face {
-    font-family: 'TMoneyDungunbaram';
+    font-family: 'TmoneyRoundWind';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
     font-weight: 800;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Pretendard';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
     font-weight: 400;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Pretendard';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
     font-weight: 500;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Pretendard';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
     font-weight: 600;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Pretendard';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
     font-weight: 700;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Pretendard';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
     font-weight: 800;
+    font-display: swap;
+}
+
+/* ─── 1. CSS VARIABLES — PC BASE ────────────── */
+:root {
+    /* Colors */
+    --color-primary:  #F5F278;
+    --color-point:    #FF99B0;
+    --color-black:    #1E1E1E;
+    --color-bg:       #302F32;
+    --color-text:     #F9F4EE;
+    --color-white:    #FFFFFF;
+
+    /* Font families */
+    --font-headline: 'TmoneyRoundWind', sans-serif;
+    --font-body:     'Pretendard', sans-serif;
+
+    /* ── Typography — PC 4배수 ── */
+    --fs-h1:    48px;
+    --fs-h2:    40px;
+    --fs-h3:    32px;
+    --fs-h4:    24px;
+    --fs-b1:    16px;
+    --fs-b2:    14px;
+    --fs-badge: 12px;
+
+    /* Font weights */
+    --fw-regular:   400;
+    --fw-medium:    500;
+    --fw-semibold:  600;
+    --fw-bold:      700;
+    --fw-extrabold: 800;
+
+    /* ── Spacing (20px 단위) ── */
+    --sp-xs:        20px;
+    --sp-sm:        40px;
+    --sp-md:        60px;
+    --sp-section:   110px;
+    --sp-title-gap: 20px;
+
+    /* ── Layout ── */
+    --container-width: 1320px;
+    --grid-cols:       12;
+    --grid-gutter:     24px;
+
+    /* ── Radius ── */
+    --r-sm:   10px;
+    --r-md:   20px;
+    --r-pill: 40px;
+    --r-full: 9999px;
+
+    /* ── Shadow ── */
+    --shadow-sm:           0 2px 8px rgba(0,0,0,.20);
+    --shadow-md:           0 6px 20px rgba(0,0,0,.30);
+    --shadow-lg:           0 12px 40px rgba(0,0,0,.38);
+    --shadow-glow-primary: 0 4px 20px rgba(245,242,120,.50);
+    --shadow-glow-point:   0 4px 20px rgba(255,153,176,.50);
+
+    /* ── Transition ── */
+    --tr-fast: 150ms ease;
+    --tr-base: 250ms ease;
+    --tr-slow: 400ms ease;
+}
+
+/* ─── 2. TABLET (768px ~ 1024px) ─────────────── */
+@media (max-width: 1024px) {
+    :root {
+        --fs-h1:    40px;
+        --fs-h2:    32px;
+        --fs-h3:    24px;
+        --fs-h4:    20px;
+        --fs-b1:    14px;
+        --fs-b2:    13px;
+        --fs-badge: 12px;
+
+        --sp-section: 80px;
+    }
+}
+
+/* ─── 3. MOBILE (~ 767px) ────────────────────── */
+@media (max-width: 767px) {
+    :root {
+        --fs-h1:    36px;
+        --fs-h2:    28px;
+        --fs-h3:    20px;
+        --fs-h4:    16px;
+        --fs-b1:    14px;   /* 하한선 */
+        --fs-b2:    12px;
+        --fs-badge: 12px;
+
+        --sp-section: 60px;
+        --sp-sm:      32px;
+        --sp-md:      48px;
+    }
+}
+
+/* ─── 4. BASE RESET ──────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* reset base */
+body, p, h1, h2, h3 {
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--fs-b1);
+    font-weight: var(--fw-regular);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-headline);
+    font-weight: var(--fw-extrabold);
+    line-height: 1.25;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+p  { font-size: var(--fs-b1); line-height: 1.6; }
+
+a       { color: inherit; text-decoration: none; }
+ul, ol  { list-style: none; }
+img     { max-width: 100%; display: block; }
+
+/* ─── 5. LAYOUT ──────────────────────────────── */
+.container {
+    width: 100%;
+    max-width: var(--container-width);  /* 1320px */
+    margin-inline: auto;
+    padding-inline: var(--sp-sm);       /* 40px */
+}
+
+@media (max-width: 767px) {
+    .container {
+        padding-inline: var(--sp-xs);  /* 20px */
+    }
+}
+
+.section {
+    padding-block: var(--sp-section);
+}
+
+/* 섹션 텍스트 구조 */
+.section-label {
+    font-family: var(--font-body);
+    font-size: var(--fs-badge);
+    font-weight: var(--fw-semibold);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: var(--sp-title-gap);
+}
+
+.section-title {
+    font-family: var(--font-headline);
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-extrabold);
+    color: var(--color-text);
+    margin-bottom: var(--sp-title-gap);
+    line-height: 1.25;
+}
+
+.section-sub {
+    font-family: var(--font-body);
+    font-size: var(--fs-b1);
+    font-weight: var(--fw-regular);
+    color: var(--color-text);
+    opacity: .75;
+    line-height: 1.6;
+}
+
+/* ─── 6. TYPOGRAPHY UTILITIES ────────────────── */
+.font-headline { font-family: var(--font-headline); }
+.font-body     { font-family: var(--font-body); }
+
+.fs-h1  { font-size: var(--fs-h1); }
+.fs-h2  { font-size: var(--fs-h2); }
+.fs-h3  { font-size: var(--fs-h3); }
+.fs-h4  { font-size: var(--fs-h4); }
+.fs-b1  { font-size: var(--fs-b1); }
+.fs-b2  { font-size: var(--fs-b2); }
+
+.fw-regular   { font-weight: var(--fw-regular); }
+.fw-medium    { font-weight: var(--fw-medium); }
+.fw-semibold  { font-weight: var(--fw-semibold); }
+.fw-bold      { font-weight: var(--fw-bold); }
+.fw-extrabold { font-weight: var(--fw-extrabold); }
+
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+
+/* ─── 7. COLOR UTILITIES ─────────────────────── */
+.color-primary { color: var(--color-primary); }
+.color-point   { color: var(--color-point); }
+.color-text    { color: var(--color-text); }
+.color-black   { color: var(--color-black); }
+
+.bg-primary { background-color: var(--color-primary); }
+.bg-dark    { background-color: var(--color-bg); }
+.bg-black   { background-color: var(--color-black); }
+.bg-white   { background-color: var(--color-white); }
+
+/* ─── 8. BUTTON SYSTEM ───────────────────────── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: var(--fs-b2);
+    font-weight: var(--fw-bold);
+    border-radius: var(--r-pill);
+    border: none;
+    cursor: pointer;
+    transition:
+        transform var(--tr-base),
+        box-shadow var(--tr-base),
+        background-color var(--tr-base);
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-black);
+    padding: 14px 28px;
+    box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover {
+    background-color: #eeeb58;
+    box-shadow: var(--shadow-glow-primary);
+    transform: translateY(-2px);
+}
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-app {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: var(--fs-b2);
+    font-weight: var(--fw-bold);
+    background-color: var(--color-black);
+    color: var(--color-text);
+    padding: 12px 24px;
+    border-radius: var(--r-pill);
+    border: 1.5px solid rgba(249,244,238,.15);
+    transition: transform var(--tr-base), box-shadow var(--tr-base);
+    white-space: nowrap;
+}
+.btn-app:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ─── 9. HERO BADGE ──────────────────────────── */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    font-family: var(--font-body);
+    font-size: var(--fs-b2);
+    font-weight: var(--fw-bold);
+    color: var(--color-black);
+    background-color: var(--color-primary);
+    border-radius: var(--r-full);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--tr-base), box-shadow var(--tr-base);
+}
+.hero-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow-primary);
+}
+
+/* ─── 10. PILL BADGE SYSTEM ──────────────────── */
+.pill-badge {
+    --_stroke: var(--color-primary);
+    --_bg:     rgba(30,30,30,.72);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    font-family: var(--font-body);
+    font-size: var(--fs-b2);
+    font-weight: var(--fw-bold);
+    color: var(--color-text);
+    background: var(--_bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid var(--_stroke);
+    border-radius: var(--r-full);
+    white-space: nowrap;
+    box-shadow: var(--shadow-md);
+    cursor: default;
+    transition:
+        transform var(--tr-base),
+        box-shadow var(--tr-base);
+}
+.pill-badge:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: var(--shadow-lg);
+}
+
+.pill-badge--sm { padding: 7px 14px;  font-size: var(--fs-badge); }
+.pill-badge--lg { padding: 13px 24px; font-size: var(--fs-b1); }
+
+.pill-badge--yellow { --_stroke: var(--color-primary); }
+.pill-badge--pink   { --_stroke: var(--color-point); }
+.pill-badge--white  { --_stroke: rgba(249,244,238,.6); }
+.pill-badge--dark   { --_stroke: rgba(30,30,30,.5); }
+
+.pill-badge--light {
+    --_bg: rgba(255,255,255,.85);
+    color: var(--color-black);
+}
+.pill-badge--light:hover {
+    box-shadow: var(--shadow-glow-primary);
+}
+
+/* ─── 11. KV FLOATING ANIMATION ──────────────── */
+@keyframes floatY {
+    0%, 100% { transform: translateY(0px) rotate(var(--_rotate, -4deg)); }
+    50%       { transform: translateY(-10px) rotate(var(--_rotate, -4deg)); }
+}
+@keyframes floatY-rev {
+    0%, 100% { transform: translateY(0px) rotate(var(--_rotate, 4deg)); }
+    50%       { transform: translateY(-10px) rotate(var(--_rotate, 4deg)); }
+}
+
+.floating-badge {
+    position: absolute;
+    animation: floatY 3s ease-in-out infinite;
+}
+
+/* ─── 12. ABOUT SECTION ──────────────────────── */
+.road-dash {
+    width: 100%;
+    height: 4px;
+    background-image: repeating-linear-gradient(
+        to right,
+        var(--color-primary) 0,
+        var(--color-primary) 24px,
+        transparent 24px,
+        transparent 48px
+    );
+    opacity: .55;
+}
+
+.about-slogan {
+    font-family: var(--font-headline);
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-extrabold);
+    color: var(--color-text);
+    line-height: 1.35;
+}
+.about-slogan span {
+    color: var(--color-primary);
+}
+
+.about-brand {
+    font-family: var(--font-headline);
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-extrabold);
+    color: var(--color-text);
+    line-height: 1;
+    letter-spacing: -.01em;
+}
+
+/* ─── 13. CARD SYSTEM ────────────────────────── */
+.card {
+    background-color: var(--color-primary);
+    color: var(--color-black);
+    border-radius: var(--r-md);
+    padding: var(--sp-xs);
+    transition: transform var(--tr-base), box-shadow var(--tr-base);
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ─── 14. GRID UTILITIES ─────────────────────── */
+.grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--grid-gutter);
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-xs);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-xs);
+}
+
+@media (max-width: 1024px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid-12 { grid-template-columns: repeat(6, 1fr); }
+}
+@media (max-width: 767px) {
+    .grid-4  { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .grid-2  { grid-template-columns: 1fr; }
+    .grid-12 { grid-template-columns: 1fr; gap: var(--sp-xs); }
+}
+
+/* ─── 15. FLEX UTILITIES ─────────────────────── */
+.flex         { display: flex; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-col     { display: flex; flex-direction: column; }
+.flex-col-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gap-xs { gap: var(--sp-xs); }
+.gap-sm { gap: var(--sp-sm); }
+.gap-md { gap: var(--sp-md); }
+
+/* ─── 16. SPACING UTILITIES ──────────────────── */
+.mt-xs { margin-top: var(--sp-xs); }
+.mt-sm { margin-top: var(--sp-sm); }
+.mt-md { margin-top: var(--sp-md); }
+.mb-xs { margin-bottom: var(--sp-xs); }
+.mb-sm { margin-bottom: var(--sp-sm); }
+.mb-md { margin-bottom: var(--sp-md); }
+.py-section { padding-block: var(--sp-section); }
+
+/* ─── 17. REVIEW COMPONENTS ──────────────────── */
+
+/* 통계 — background 없음, 선 없음 */
+.review-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-sm);
+    flex-wrap: wrap;
+}
+@media (max-width: 767px) {
+    .review-stats { gap: var(--sp-xs); }
+}
+
+.review-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.review-stat__label {
+    font-family: var(--font-body);
+    font-size: var(--fs-b2);
+    font-weight: var(--fw-medium);
+    color: var(--color-text);
+    opacity: .65;
+}
+
+.review-stat__value {
+    font-family: var(--font-headline);
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-extrabold);
+    color: var(--color-text);
+    line-height: 1;
+}
+.review-stat__value--point {
+    color: var(--color-point);
+}
+
+/* 리뷰 카드 그리드: 4열 → 모바일 2×2 */
+.review-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-xs);
+    margin-top: var(--sp-sm);
+}
+@media (max-width: 1024px) {
+    .review-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 767px) {
+    .review-cards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+
+/* 리뷰 카드 */
+.review-card {
+    background-color: var(--color-black);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--tr-base), box-shadow var(--tr-base);
+}
+.review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.review-card__img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+/* 텍스트 — 이미지 하단, 중앙정렬 */
+.review-card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+    padding: var(--sp-xs);
+}
+
+.review-card__stars {
+    font-size: var(--fs-b1);
+    color: var(--color-primary);
+    letter-spacing: 2px;
+}
+
+.review-card__name {
+    font-family: var(--font-body);
+    font-size: var(--fs-b1);
+    font-weight: var(--fw-bold);
+    color: var(--color-text);
+}
+
+.review-card__count {
+    font-family: var(--font-body);
+    font-size: var(--fs-b2);
+    font-weight: var(--fw-regular);
+    color: var(--color-text);
+    opacity: .55;
+}
+
+.review-card__text {
+    font-family: var(--font-body);
+    font-size: var(--fs-b2);
+    font-weight: var(--fw-regular);
+    color: var(--color-text);
+    opacity: .8;
+    line-height: 1.55;
+    margin-top: 4px;
+}
+
+/* ─── 18. VISIBILITY HELPERS ─────────────────── */
+@media (max-width: 767px) {
+    .hide-mobile { display: none ; }
+    .show-mobile { display: block; }
+    .nav         { display: none ; }
+}
+@media (min-width: 768px) {
+    .show-mobile { display: none; }
+}
+@media (max-width: 1024px) {
+    .hide-tablet { display: none; }
+}
+
+/* ─── 19. MISC ───────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-black);
 }
