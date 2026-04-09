@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- ── HEADER ─────────────────────────────── -->
+    <!-- HEADER -->
     <header class="header">
         <div class="container header__inner">
             <a href="#" class="header__logo">
@@ -29,41 +29,35 @@
         </div>
     </header>
 
-    <!-- ── KV 섹션 ────────────────────────────── -->
+    <!-- KV -->
     <section class="kv">
         <div class="kv__inner">
-            <!-- 상단 hero badge -->
-            <span class="hero-badge">🏆 국내 1위 펫택시 앱</span>
-
-            <!-- 메인 타이틀 -->
-            <h1 class="kv__title">DangGO!</h1>
-            <p class="kv__sub">이동부터 케어까지 반려동물 외출의 모든 것</p>
-
-            <!-- 앱 다운로드 버튼 -->
-            <div class="kv__btns">
-                <a href="#" class="btn-store btn-store--google">
-                    <img src="assets/images/icon/Googleplay-icon.png" alt="Google Play">
-                    Google Play
-                </a>
-                <a href="#" class="btn-store btn-store--apple">
-                    <img src="assets/images/icon/Appstore-icon.png" alt="App Store">
-                    App Store
-                </a>
+            <div class="kv__text">
+                <span class="hero-badge">🏆 국내 1위 펫택시 앱</span>
+                <h1 class="kv__title">DangGO!</h1>
+                <p class="kv__sub">이동부터 케어까지 반려동물 외출의 모든 것</p>
+                <div class="kv__btns">
+                    <a href="#" class="btn-store btn-store--google">
+                        <img src="assets/images/icon/Googleplay-icon.png" alt="Google Play">
+                        Google Play
+                    </a>
+                    <a href="#" class="btn-store btn-store--apple">
+                        <img src="assets/images/icon/Appstore-icon.png" alt="App Store">
+                        App Store
+                    </a>
+                </div>
             </div>
-
-            <!-- 택시 + floating badges -->
             <div class="kv__taxi-wrap">
                 <img class="kv__taxi" src="assets/images/taxi.png" alt="댕고 택시">
-
-                <span class="pill-badge pill-badge--yellow floating-badge floating-1">🚨 24시간 긴급출동</span>
-                <span class="pill-badge pill-badge--pink   floating-badge floating-2">📱 30초 간편예약</span>
-                <span class="pill-badge pill-badge--white  floating-badge floating-3 pill-badge--sm">🧑‍✈️ 전문 드라이버</span>
-                <span class="pill-badge pill-badge--yellow floating-badge floating-4 pill-badge--sm">🗓️ 정기 예약</span>
+                <span class="pill-badge pill-badge--pink   floating-badge floating-1">🚨 24시간 긴급출동</span>
+                <span class="pill-badge pill-badge--purple floating-badge floating-2">📱 30초 간편예약</span>
+                <span class="pill-badge pill-badge--green  floating-badge floating-3 pill-badge--sm">🧑‍✈️ 전문 드라이버</span>
+                <span class="pill-badge pill-badge--orange floating-badge floating-4 pill-badge--sm">🗓️ 정기 예약</span>
             </div>
         </div>
     </section>
 
-    <!-- ── ABOUT 섹션 ──────────────────────────── -->
+    <!-- ABOUT -->
     <section class="about" id="about">
         <div class="road-dash"></div>
         <div class="about__inner">
@@ -75,67 +69,124 @@
         </div>
     </section>
 
-    <!-- ── HOW TO USE 섹션 ─────────────────────── -->
+    <!-- HOW IT WORKS -->
     <section class="howto section" id="howto">
-        <div class="container">
-            <div class="howto__layout">
+      <div class="container">
 
-                <!-- 좌: 앱 목업 -->
-                <div class="howto__mockup">
-                    <img src="assets/images/app-mockup.png" alt="댕고 앱 화면">
-                </div>
+        <div class="howto__header">
+          <p class="section-label">How it works</p>
+          <h2 class="section-title">댕고, 어렵지 않아요!</h2>
 
-                <!-- 우: 텍스트 -->
-                <div class="howto__content">
-                    <p class="section-label">How it works</p>
-                    <h2 class="section-title">댕고, 어렵지 않아요!</h2>
-
-                    <!-- 탭 -->
-                    <div class="howto__tabs">
-                        <button class="howto__tab howto__tab--active">앱 미리보기</button>
-                        <button class="howto__tab">그냥 설명</button>
-                        <button class="howto__tab">앱 다운받기</button>
-                    </div>
-
-                    <!-- 스텝 리스트 -->
-                    <ol class="howto__steps">
-                        <li class="howto__step">
-                            <span class="howto__step-num">1</span>
-                            <div>
-                                <h4 class="howto__step-title">원하는 시간에 바로 예약</h4>
-                                <ul class="howto__step-list">
-                                    <li>
-                                        <span class="step-icon">🗓</span>
-                                        <div>
-                                            <strong>실시간 빠른 기반 매칭</strong>
-                                            <p>실시간으로 빠르게 인근 드라이버와 매칭되어 빠른 서비스를 받아보세요.</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span class="step-icon">🔁</span>
-                                        <div>
-                                            <strong>정기 케어 & 반복 설정</strong>
-                                            <p>댕고와 함께 정기적인 케어 일정을 잡고 반복 설정을 할 수 있어요.</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span class="step-icon">👤</span>
-                                        <div>
-                                            <strong>반려동물 프로필 등록</strong>
-                                            <p>반려동물의 이름, 품종, 특이사항 등을 등록하면 더 안전한 서비스를 받아요.</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ol>
-                </div>
-
-            </div>
+          <div class="howto__tabs">
+            <button class="howto__tab howto__tab--active" data-target="howto-panel-0">앱 미리보기</button>
+            <button class="howto__tab" data-target="howto-panel-1">그냥 설명</button>
+            <button class="howto__tab" data-target="howto-panel-2">앱 다운받기</button>
+          </div>
         </div>
+
+        <div class="howto__panel" id="howto-panel-0">
+          <div class="howto__panel-inner">
+            <div class="howto__mockup">
+              <img src="assets/images/mockup01.png" alt="앱 미리보기">
+            </div>
+            <div class="howto__content">
+              <ol class="howto__steps">
+                <li class="howto__step">
+                  <span class="howto__step-num">1</span>
+                  <div>
+                    <strong class="howto__step-title">간편한 목적지 설정</strong>
+                    <p>자주 가는 반려동물 시설들을 즐겨찾기로 등록하면 간단하게 호출할 수 있어요.</p>
+                  </div>
+                </li>
+                <li class="howto__step">
+                  <span class="howto__step-num">2</span>
+                  <div>
+                    <strong class="howto__step-title">실시간 위치 관제</strong>
+                    <p>이동 중 혼자라도 걱정 없어요. 이동거리, 경로에서 실시간 위치 확인이 가능해요.</p>
+                  </div>
+                </li>
+                <li class="howto__step">
+                  <span class="howto__step-num">3</span>
+                  <div>
+                    <strong class="howto__step-title">자동 결제 시스템</strong>
+                    <p>미리 등록한 결제 수단으로 자동 결제. 도착 후 앱에서 영수증을 확인할 수 있어요.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="howto__panel" id="howto-panel-1">
+          <div class="howto__panel-inner">
+            <div class="howto__mockup">
+              <img src="assets/images/mockup-side.png" alt="그냥 설명">
+            </div>
+            <div class="howto__content">
+              <ol class="howto__steps">
+                <li class="howto__step">
+                  <span class="howto__step-num">1</span>
+                  <div>
+                    <strong class="howto__step-title">반복되는 일상 관리</strong>
+                    <p>정기적으로 반복되는 동물병원이나 미용실 방문 일정을 댕고로 한 번에 관리해요.</p>
+                  </div>
+                </li>
+                <li class="howto__step">
+                  <span class="howto__step-num">2</span>
+                  <div>
+                    <strong class="howto__step-title">전담 드라이버 우선 배차</strong>
+                    <p>자주 이용한 드라이버를 즐겨찾기 해두면 다음 예약 시 우선적으로 배차돼요.</p>
+                  </div>
+                </li>
+                <li class="howto__step">
+                  <span class="howto__step-num">3</span>
+                  <div>
+                    <strong class="howto__step-title">유연한 일정 변경</strong>
+                    <p>급하게 일정이 바뀌어도 출발 전까지 일정 변경 및 취소를 자유롭게 할 수 있어요.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="howto__panel" id="howto-panel-2">
+          <div class="howto__panel-inner">
+            <div class="howto__mockup">
+              <img src="assets/images/modal01.png" alt="앱 다운받기">
+            </div>
+            <div class="howto__content">
+              <ol class="howto__steps">
+                <li class="howto__step">
+                  <span class="howto__step-num">1</span>
+                  <div>
+                    <strong class="howto__step-title">맞춤 드라이버 선발</strong>
+                    <p>댕고의 드라이버는 반려동물 전문 교육을 이수한 분들로만 구성되어 있어요.</p>
+                  </div>
+                </li>
+                <li class="howto__step">
+                  <span class="howto__step-num">2</span>
+                  <div>
+                    <strong class="howto__step-title">투명한 평점 & 리뷰</strong>
+                    <p>매 이용 후 평점과 리뷰를 남길 수 있어요. 축적된 데이터로 서비스를 개선해요.</p>
+                  </div>
+                </li>
+                <li class="howto__step">
+                  <span class="howto__step-num">3</span>
+                  <div>
+                    <strong class="howto__step-title">전문 교육 이수 확인</strong>
+                    <p>드라이버 프로필에서 보유 교육 이수 항목을 직접 확인할 수 있어요.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- ── FEATURES 섹션 ───────────────────────── -->
+    <!-- FEATURES -->
     <section class="features section" id="features">
         <div class="container">
             <p class="section-label text-center">Features</p>
@@ -143,54 +194,38 @@
                 댕고 택시,<br>이렇게 활용해보세요
             </h2>
             <p class="section-sub text-center">
-                다녀온 반려동물 택시 서비스 여기 있었어, 없었다고요.<br>
-                이렇게 쓰면 됩니다. 진짜예요.
+                더 나은 반려생활을 위한 댕고의 한 걸음, <br>
+                반려동물과의 모든 외출을 책임질게요.
             </p>
-
-            <!-- 3D 지도핀 일러스트 -->
             <div class="features__pin">
-                <img src="assets/images/map-pin.png" alt="지도 핀 일러스트">
+                <img src="assets/images/map.png" alt="지도 핀 일러스트">
             </div>
-
-            <!-- 4개 카드 -->
             <div class="grid-4 features__cards">
                 <div class="card features__card">
                     <img src="assets/images/feature-1.png" alt="펫 미용실 이동" class="features__card-img">
                     <h4 class="features__card-title">펫 미용실 이동</h4>
-                    <p class="features__card-desc">
-                        미용 예약은 있는데 데려다 줄 수 없을 때,
-                        댕고 드라이버가 데려다 드립니다.
-                    </p>
+                    <p class="features__card-desc">정기 예약 설정 한 번으로 매주 자동 예약</p>
                 </div>
                 <div class="card features__card">
-                    <img src="assets/images/feature-2.png" alt="캠핑·캠프 탁송" class="features__card-img">
-                    <h4 class="features__card-title">캠핑·캠프 탁송</h4>
-                    <p class="features__card-desc">
-                        캠핑장이나 훈련소까지 안전하게
-                        반려동물을 데려다 드립니다.
-                    </p>
+                    <img src="assets/images/feature-2.png" alt="가족여행" class="features__card-img">
+                    <h4 class="features__card-title">여행상황</h4>
+                    <p class="features__card-desc">여행 중 펫호텔 체크인, 체크아웃,이동까지 편리하게</p>
                 </div>
                 <div class="card features__card">
                     <img src="assets/images/feature-3.png" alt="가족 공유 계정" class="features__card-img">
                     <h4 class="features__card-title">가족 공유 계정</h4>
-                    <p class="features__card-desc">
-                        가족 모두가 하나의 계정으로
-                        댕고 서비스를 이용할 수 있어요.
-                    </p>
+                    <p class="features__card-desc">가족 모두가 하나의 계정으로 댕고 서비스를 이용할 수 있어요.</p>
                 </div>
                 <div class="card features__card">
                     <img src="assets/images/feature-4.png" alt="24시간 긴급출동" class="features__card-img">
                     <h4 class="features__card-title">24시간 긴급출동</h4>
-                    <p class="features__card-desc">
-                        언제든 긴급 상황에 바로 연락 주세요.
-                        24시간 출동 드립니다.
-                    </p>
+                    <p class="features__card-desc">새벽, 주말, 공휴일 관계없이 언제든 긴급 이동을 지원해요.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── DRIVER 섹션 ─────────────────────────── -->
+    <!-- DRIVER -->
     <section class="driver section" id="driver">
         <div class="container">
             <p class="section-label text-center">Driver</p>
@@ -202,16 +237,57 @@
                 드라이버 한 분 한 분이 직접 인터뷰하고,<br>
                 스펙한 기준 이상을 검증 받은 분들입니다.
             </p>
-
             <div class="driver__layout">
-                <!-- 좌: 드라이버 사진 슬라이드 -->
                 <div class="driver__slides">
-                    <div class="driver__slide-item">
-                        <img src="assets/images/driver-1.jpg" alt="댕고 드라이버">
+                    <div class="driver__track">
+                        <div class="driver__slide-item is-active">
+                            <img src="assets/images/card/driver01.png" alt="댕고 드라이버 1">
+                            <div class="driver__overlay">
+                                <div class="driver__overlay-badges">
+                                    <span class="pill-badge pill-badge--green pill-badge--sm">✅ 신원인증 완료</span>
+                                    <span class="pill-badge pill-badge--yellow pill-badge--sm">🎓 전문교육 이수</span>
+                                </div>
+                                <p class="driver__overlay-meta">권*연 기사님 ★★★★★ 4.89</p>
+                            </div>
+                        </div>
+                        <div class="driver__slide-item">
+                            <img src="assets/images/card/driver02.png" alt="댕고 드라이버 2">
+                            <div class="driver__overlay">
+                                <div class="driver__overlay-badges">
+                                    <span class="pill-badge pill-badge--green pill-badge--sm">✅ 신원인증 완료</span>
+                                    <span class="pill-badge pill-badge--yellow pill-badge--sm">🎓 전문교육 이수</span>
+                                </div>
+                                <p class="driver__overlay-meta">이*훈 기사님 ★★★★★ 4.92</p>
+                            </div>
+                        </div>
+                        <div class="driver__slide-item">
+                            <img src="assets/images/card/driver03.png" alt="댕고 드라이버 3">
+                            <div class="driver__overlay">
+                                <div class="driver__overlay-badges">
+                                    <span class="pill-badge pill-badge--green pill-badge--sm">✅ 신원인증 완료</span>
+                                    <span class="pill-badge pill-badge--yellow pill-badge--sm">🎓 전문교육 이수</span>
+                                </div>
+                                <p class="driver__overlay-meta">김*민 기사님 ★★★★★ 4.87</p>
+                            </div>
+                        </div>
+                        <div class="driver__slide-item">
+                            <img src="assets/images/card/driver04.png" alt="댕고 드라이버 4">
+                            <div class="driver__overlay">
+                                <div class="driver__overlay-badges">
+                                    <span class="pill-badge pill-badge--green pill-badge--sm">✅ 신원인증 완료</span>
+                                    <span class="pill-badge pill-badge--yellow pill-badge--sm">🎓 전문교육 이수</span>
+                                </div>
+                                <p class="driver__overlay-meta">박*준 기사님 ★★★★★ 4.91</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="driver__dots" id="driverDots">
+                        <button class="driver__dot is-active" data-index="0" aria-label="드라이버 1"></button>
+                        <button class="driver__dot" data-index="1" aria-label="드라이버 2"></button>
+                        <button class="driver__dot" data-index="2" aria-label="드라이버 3"></button>
+                        <button class="driver__dot" data-index="3" aria-label="드라이버 4"></button>
                     </div>
                 </div>
-
-                <!-- 우: 체크리스트 -->
                 <div class="driver__content">
                     <h3 class="driver__content-title">
                         우리 아이를 맡길 수 있는<br>
@@ -228,22 +304,22 @@
                         <li>
                             <span class="check-icon">⭐</span>
                             <div>
-                                <strong>선진 & 캠피아비 먹이 조료</strong>
-                                <p>올바른 사료와 먹이 방법을 교육받아요.</p>
+                                <strong>안전 운전 인증</strong>
+                                <p>올바른 반려동물 이동을 위한 안전 교육을 받아요.</p>
                             </div>
                         </li>
                         <li>
                             <span class="check-icon">⭐</span>
                             <div>
-                                <strong>생 이용 자업 국의</strong>
-                                <p>반려동물과의 안전한 이동을 위한 교육.</p>
+                                <strong>응급 처치 교육 이수</strong>
+                                <p>반려동물 응급상황에 즉시 대응할 수 있어요.</p>
                             </div>
                         </li>
                         <li>
                             <span class="check-icon">⭐</span>
                             <div>
-                                <strong>서울의 정보 관리</strong>
-                                <p>지역별 동물병원, 미용실 정보를 숙지해요.</p>
+                                <strong>능동적인 서비스 개선</strong>
+                                <p>좋은 후기를 바탕으로 기사님들께 인센티브를 제공해요.</p>
                             </div>
                         </li>
                     </ul>
@@ -252,7 +328,7 @@
         </div>
     </section>
 
-    <!-- ── REVIEW 섹션 ─────────────────────────── -->
+    <!-- REVIEW -->
     <section class="review section" id="review">
         <div class="container">
             <p class="section-label text-center">Review</p>
@@ -260,8 +336,6 @@
                 댕고는 수많은 분들의<br>
                 <span class="color-point">신뢰를 받고 있어요</span>
             </h2>
-
-            <!-- 통계 수치 -->
             <div class="review-stats">
                 <div class="review-stat">
                     <span class="review-stat__label">평점</span>
@@ -280,50 +354,119 @@
                     <span class="review-stat__value review-stat__value--point">98%</span>
                 </div>
             </div>
+            <div class="review-marquee" aria-label="리뷰 카드 자동 슬라이드">
+                <div class="review-cards">
+                    <div class="review-card">
+                        <img class="review-card__img" src="assets/images/card/reviewcard01.png" alt="리뷰 이미지 1">
+                        <div class="review-card__body">
+                            <div class="review-card__badges">
+                                <span class="pill-badge pill-badge--green pill-badge--sm">✅ 신원인증 완료</span>
+                                <span class="pill-badge pill-badge--yellow pill-badge--sm">🎓 전문교육 이수</span>
+                            </div>
+                            <div class="review-card__stars">★★★★★</div>
+                            <p class="review-card__name">몽이 보호자</p>
+                            <p class="review-card__count">이용 3회</p>
+                            <p class="review-card__text">드라이버 분이 너무 친절하고 아이도 무사히 도착했어요!</p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <img class="review-card__img" src="assets/images/card/reviewcard02.png" alt="리뷰 이미지 2">
+                        <div class="review-card__body">
+                            <div class="review-card__badges">
+                                <span class="pill-badge pill-badge--green pill-badge--sm">✅ 신원인증 완료</span>
+                                <span class="pill-badge pill-badge--yellow pill-badge--sm">🎓 전문교육 이수</span>
+                            </div>
+                            <div class="review-card__stars">★★★★★</div>
+                            <p class="review-card__name">두부 보호자</p>
+                            <p class="review-card__count">이용 7회</p>
+                            <p class="review-card__text">정기예약 기능 덕분에 매주 편하게 미용 보내고 있어요.</p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <img class="review-card__img" src="assets/images/reviewcard03.png" alt="리뷰 이미지 3">
+                        <div class="review-card__body">
+                            <div class="review-card__badges">
+                                <span class="pill-badge pill-badge--green pill-badge--sm">✅ 신원인증 완료</span>
+                                <span class="pill-badge pill-badge--yellow pill-badge--sm">🎓 전문교육 이수</span>
+                            </div>
+                            <div class="review-card__stars">★★★★★</div>
+                            <p class="review-card__name">코코 보호자</p>
+                            <p class="review-card__count">이용 12회</p>
+                            <p class="review-card__text">24시간 긴급출동 덕분에 새벽에도 안심하고 맡겼어요.</p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <img class="review-card__img" src="assets/images/card/reviewcard03.png" alt="리뷰 이미지 4">
+                        <div class="review-card__body">
+                            <div class="review-card__badges">
+                                <span class="pill-badge pill-badge--green pill-badge--sm">✅ 신원인증 완료</span>
+                                <span class="pill-badge pill-badge--yellow pill-badge--sm">🎓 전문교육 이수</span>
+                            </div>
+                            <div class="review-card__stars">★★★★☆</div>
+                            <p class="review-card__name">마루 보호자</p>
+                            <p class="review-card__count">이용 2회</p>
+                            <p class="review-card__text">앱이 직관적이고 예약이 너무 편해요. 강력 추천합니다!</p>
+                        </div>
+                    </div>
 
-            <!-- 리뷰 카드 -->
-            <div class="review-cards">
-                <div class="review-card">
-                    <img class="review-card__img" src="assets/images/review-1.jpg" alt="리뷰 강아지">
-                    <div class="review-card__body">
-                        <div class="review-card__stars">★★★★★</div>
-                        <p class="review-card__name">몽이 보호자</p>
-                        <p class="review-card__count">이용 3회</p>
-                        <p class="review-card__text">드라이버 분이 너무 친절하고 아이도 무사히 도착했어요!</p>
+                    <div class="review-card" aria-hidden="true">
+                        <img class="review-card__img" src="assets/images/reviewcard01.png" alt="">
+                        <div class="review-card__body">
+                            <div class="review-card__badges">
+                                <span class="pill-badge pill-badge--green pill-badge--sm">✅ 신원인증 완료</span>
+                                <span class="pill-badge pill-badge--yellow pill-badge--sm">🎓 전문교육 이수</span>
+                            </div>
+                            <div class="review-card__stars">★★★★★</div>
+                            <p class="review-card__name">둥둥이</p>
+                            <p class="review-card__count">이용 3회</p>
+                            <p class="review-card__text">드라이버 분이 너무 친절하고 아이도 무사히 도착했어요!</p>
+                        </div>
                     </div>
-                </div>
-                <div class="review-card">
-                    <img class="review-card__img" src="assets/images/review-2.jpg" alt="리뷰 강아지">
-                    <div class="review-card__body">
-                        <div class="review-card__stars">★★★★★</div>
-                        <p class="review-card__name">두부 보호자</p>
-                        <p class="review-card__count">이용 7회</p>
-                        <p class="review-card__text">정기예약 기능 덕분에 매주 편하게 미용 보내고 있어요.</p>
+                    <div class="review-card" aria-hidden="true">
+                        <img class="review-card__img" src="assets/images/reviewcard02.png" alt="">
+                        <div class="review-card__body">
+                            <div class="review-card__badges">
+                                <span class="pill-badge pill-badge--green pill-badge--sm">✅ 신원인증 완료</span>
+                                <span class="pill-badge pill-badge--yellow pill-badge--sm">🎓 전문교육 이수</span>
+                            </div>
+                            <div class="review-card__stars">★★★★★</div>
+                            <p class="review-card__name">두비비</p>
+                            <p class="review-card__count">이용 7회</p>
+                            <p class="review-card__text">정기예약 기능 덕분에 매주 편하게 미용 보내고 있어요.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="review-card">
-                    <img class="review-card__img" src="assets/images/review-3.jpg" alt="리뷰 강아지">
-                    <div class="review-card__body">
-                        <div class="review-card__stars">★★★★★</div>
-                        <p class="review-card__name">코코 보호자</p>
-                        <p class="review-card__count">이용 12회</p>
-                        <p class="review-card__text">24시간 긴급출동 덕분에 새벽에도 안심하고 맡겼어요.</p>
+                    <div class="review-card" aria-hidden="true">
+                        <img class="review-card__img" src="assets/images/reviewcard03.png" alt="">
+                        <div class="review-card__body">
+                            <div class="review-card__badges">
+                                <span class="pill-badge pill-badge--green pill-badge--sm">✅ 신원인증 완료</span>
+                                <span class="pill-badge pill-badge--yellow pill-badge--sm">🎓 전문교육 이수</span>
+                            </div>
+                            <div class="review-card__stars">★★★★★</div>
+                            <p class="review-card__name">코코</p>
+                            <p class="review-card__count">이용 12회</p>
+                            <p class="review-card__text">24시간 긴급출동 덕분에 새벽에도 안심하고 맡겼어요.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="review-card">
-                    <img class="review-card__img" src="assets/images/review-4.jpg" alt="리뷰 강아지">
-                    <div class="review-card__body">
-                        <div class="review-card__stars">★★★★☆</div>
-                        <p class="review-card__name">마루 보호자</p>
-                        <p class="review-card__count">이용 2회</p>
-                        <p class="review-card__text">앱이 직관적이고 예약이 너무 편해요. 강력 추천합니다!</p>
+                    <div class="review-card" aria-hidden="true">
+                        <img class="review-card__img" src="assets/images/reviewcard01.png" alt="">
+                        <div class="review-card__body">
+                            <div class="review-card__badges">
+                                <span class="pill-badge pill-badge--green pill-badge--sm">✅ 신원인증 완료</span>
+                                <span class="pill-badge pill-badge--yellow pill-badge--sm">🎓 전문교육 이수</span>
+                            </div>
+                            <div class="review-card__stars">★★★★☆</div>
+                            <p class="review-card__name">마루 보호자</p>
+                            <p class="review-card__count">이용 2회</p>
+                            <p class="review-card__text">앱이 직관적이고 예약이 너무 편해요. 강력 추천합니다!</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── CTA 섹션 ────────────────────────────── -->
+    <!-- CTA -->
     <section class="cta">
         <div class="container cta__inner">
             <div class="cta__text">
@@ -344,52 +487,112 @@
                 </div>
             </div>
             <div class="cta__mockup">
-                <img src="assets/images/app-mockup-cta.png" alt="댕고 앱 목업">
+                <img src="assets/images/mockup01.png" alt="댕고 앱 목업">
             </div>
         </div>
     </section>
 
-    <!-- ── FOOTER ──────────────────────────────── -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container footer__inner">
             <div class="footer__top">
                 <a href="#" class="footer__logo">
-                    <img src="assets/images/logo.svg" alt="DangGO">
+                    <img src="assets/images/footer-logo.png" alt="DangGO">
                 </a>
                 <div class="footer__info">
-                    <p>대표 홍길동 | 사업자등록번호 000-00-00000</p>
-                    <p>서울특별시 강남구 테헤란로 00길 00</p>
-                    <p>고객센터 1588-0000 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f098959c80b094919e97979fde939fde9b82">[email&#160;protected]</a></p>
+                    <p>대표이사 | 김지인</p>
+                    <p>사업자등록번호 | 312-86-02847</p>
+                    <p>통신판매업 신고번호 | 제 2023-서울마포-0471호</p>
+                    <p>동물운송업 등록번호 | 제4110000-024-2023-0009호</p>
                 </div>
             </div>
             <div class="footer__bottom">
-                <p class="footer__copy">© 2025 DangGO. All rights reserved.</p>
+                <p class="footer__copy">© Danggo Corp. All Rights Reserved</p>
                 <div class="footer__sns">
-                    <a href="#" aria-label="Instagram">
-                        <img src="assets/images/icon-instagram.svg" alt="Instagram">
-                    </a>
-                    <a href="#" aria-label="YouTube">
-                        <img src="assets/images/icon-youtube.svg" alt="YouTube">
-                    </a>
-                    <a href="#" aria-label="KakaoTalk">
-                        <img src="assets/images/icon-kakao.svg" alt="KakaoTalk">
-                    </a>
-                    <a href="#" aria-label="Naver Blog">
-                        <img src="assets/images/icon-naver.svg" alt="Naver                         <img src="assets/images/icon-naver.svg" alt="Naver Blog">
-                    </a>
+                    <a href="#" aria-label="Instagram"><img src="assets/images/icon-instagram.svg" alt="Instagram"></a>
+                    <a href="#" aria-label="YouTube"><img src="assets/images/icon-youtube.svg" alt="YouTube"></a>
+                    <a href="#" aria-label="KakaoTalk"><img src="assets/images/icon-kakao.svg" alt="KakaoTalk"></a>
+                    <a href="#" aria-label="Naver Blog"><img src="assets/images/icon-naver.svg" alt="Naver Blog"></a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        /* 헤더 스크롤 토글
-           80px 이상 스크롤하면 .header--scrolled 추가 → dark 배경 전환 */
-        const header = document.querySelector('.header');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('header--scrolled', window.scrollY > 80);
-        });
-    </script>
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('header--scrolled', window.scrollY > 80);
+    });
 
+    (function() {
+        var tabs = document.querySelectorAll('.howto__tab');
+        var panels = [
+            document.getElementById('howto-panel-0'),
+            document.getElementById('howto-panel-1'),
+            document.getElementById('howto-panel-2')
+        ];
+
+        tabs.forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                var targetId = tab.dataset.target;
+                var target = document.getElementById(targetId);
+                if (!target) return;
+
+                tabs.forEach(function(t) { t.classList.remove('howto__tab--active'); });
+                tab.classList.add('howto__tab--active');
+
+                var tabsBar = document.querySelector('.howto__tabs');
+                var tabsH = tabsBar ? tabsBar.offsetHeight : 0;
+                var headerH = 64;
+                var offsetTop = target.getBoundingClientRect().top + window.scrollY - headerH - tabsH - 16;
+
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            var headerH = 64;
+            var tabsBar = document.querySelector('.howto__tabs');
+            var tabsH = tabsBar ? tabsBar.offsetHeight : 0;
+            var threshold = headerH + tabsH + 32;
+
+            var activeIdx = 0;
+            panels.forEach(function(panel, i) {
+                if (panel && panel.getBoundingClientRect().top <= threshold) {
+                    activeIdx = i;
+                }
+            });
+
+            tabs.forEach(function(t) { t.classList.remove('howto__tab--active'); });
+            if (tabs[activeIdx]) tabs[activeIdx].classList.add('howto__tab--active');
+        });
+    })();
+
+    (function() {
+        var items = document.querySelectorAll('.driver__slide-item');
+        var dots = document.querySelectorAll('.driver__dot');
+        var current = 0;
+        var timer;
+        function go(idx) {
+            items[current].classList.remove('is-active');
+            dots[current].classList.remove('is-active');
+            current = idx;
+            items[current].classList.add('is-active');
+            dots[current].classList.add('is-active');
+        }
+        function startAuto() {
+            timer = setInterval(function() { go((current + 1) % items.length); }, 3500);
+        }
+        dots.forEach(function(dot) {
+            dot.addEventListener('click', function() {
+                clearInterval(timer);
+                go(parseInt(dot.dataset.index, 10));
+                startAuto();
+            });
+        });
+        startAuto();
+    })();
+
+    </script>
 </body>
 </html>
