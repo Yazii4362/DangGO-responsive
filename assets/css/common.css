@@ -230,6 +230,7 @@ img     { max-width: 100%; display: block; }
     color: #F9F4EE;
     opacity: .75;
     line-height: 1.6;
+    margin-bottom: 48px;
 }
 
 
@@ -378,9 +379,7 @@ img     { max-width: 100%; display: block; }
         rgba(255,255,255,0.55) 50%,
         transparent 100%
     );
-    animation: badgeShimmer 3.5s ease-in-out infinite;
-    pointer-events: none;
-}
+
 @keyframes badgeShimmer {
     0%   { left: -75%; }
     40%  { left: 125%; }
@@ -638,7 +637,7 @@ img     { max-width: 100%; display: block; }
     color: #FF99B0;
 }
 
-/* 由щ럭 移대뱶 */
+/* 리뷰 카드 */
 .review-card {
     background-color: #1E1E1E;
     border-radius: 20px;
@@ -659,7 +658,7 @@ img     { max-width: 100%; display: block; }
     display: block;
 }
 
-/* ?띿뒪?????대?吏 ?섎떒, 以묒븰?뺣젹 */
+/* 리뷰 카드 바디 */
 .review-card__body {
     display: flex;
     flex-direction: column;

@@ -102,7 +102,7 @@
     padding-inline: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
+    align-items: stretch;
     gap: 40px;
     position: relative;
     flex: 1;
@@ -113,6 +113,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
+    justify-content: center;
 }
 
 .kv__title {
@@ -171,6 +172,7 @@
     position: relative;
     width: 100%;
     height: 420px;
+    align-self: flex-end;
 }
 
 /* 택시 뒤 원형 그라데이션 */
@@ -220,11 +222,15 @@
     z-index: 2;
 }
 
+@media (max-width: 767px) {
+    .kv__beam { display: none; }
+}
+
 /* KV 하단 도로 */
 .kv__road {
     width: 100%;
     background-color: #2b2b2b;
-    height: 52px;
+    height: 110px;
     flex-shrink: 0;
     position: relative;
 }
@@ -239,10 +245,17 @@
     background-image: repeating-linear-gradient(
         to right,
         rgba(255,255,255,0.85) 0,
-        rgba(255,255,255,0.85) 32px,
-        transparent 32px,
-        transparent 72px
+        rgba(255,255,255,0.85) 18px,
+        transparent 18px,
+        transparent 56px
     );
+    background-size: 74px 7px;
+    animation: kvRoadScroll 2s linear infinite;
+}
+
+@keyframes kvRoadScroll {
+    from { background-position-x: 0; }
+    to   { background-position-x: -74px; }
 }
 
 @media (max-width: 767px) and (min-width: 320px) {
@@ -258,12 +271,14 @@
             transparent 20px,
             transparent 44px
         );
+        background-size: 64px 5px;
+        animation: kvRoadScroll 2s linear infinite;
     }
 }
 
 .floating-1 {
     --_rotate: -6deg;
-    top: 40px;
+    bottom: 200px;
     left: 8%;
     animation: floatY 3.2s ease-in-out infinite;
     animation-delay: 0s;
@@ -271,7 +286,7 @@
 }
 .floating-2 {
     --_rotate: 5deg;
-    top: 40px;
+    bottom: 200px;
     right: 8%;
     animation: floatY-rev 2.8s ease-in-out infinite;
     animation-delay: 0.4s;
@@ -279,7 +294,7 @@
 }
 .floating-3 {
     --_rotate: -4deg;
-    bottom: 100px;
+    bottom: 40px;
     left: 8%;
     animation: floatY 3.6s ease-in-out infinite;
     animation-delay: 0.8s;
@@ -287,7 +302,7 @@
 }
 .floating-4 {
     --_rotate: 4deg;
-    bottom: 100px;
+    bottom: 40px;
     right: 8%;
     animation: floatY-rev 3s ease-in-out infinite;
     animation-delay: 1.2s;
@@ -324,8 +339,15 @@
         padding: 4px 10px;
         font-size: 0.625rem;
     }
-    .btn-store--apple { display: inline-flex; }    .kv__title { font-size: 3rem; }
+    .btn-store--apple { display: inline-flex; }
+    .kv__title { font-size: 3rem; }
     .kv__inner { gap: 24px; }
+    .kv__taxi-wrap { height: 320px; }
+    .kv__taxi { height: 320px; }
+    .floating-1 { bottom: 160px; }
+    .floating-2 { bottom: 160px; }
+    .floating-3 { bottom: 30px; }
+    .floating-4 { bottom: 30px; }
 }
 
 @media (max-width: 767px) and (min-width: 320px) {
@@ -360,11 +382,11 @@
         height: 240px;
     }
     .kv .kv-badge {
-        padding: 4px 10px;
+        padding: 8px 12px !important;
         font-size: 0.625rem;
     }
     .kv .kv-badge.pill-badge--sm {
-        padding: 4px 8px;
+        padding: 6px 10px !important;
         font-size: 0.5625rem;
     }
     .floating-1 { left: 4%;  top: 16px; }
@@ -408,7 +430,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-bottom: 56px;
+    padding-bottom: 0;
 }
 
 /* step cards */
@@ -628,6 +650,7 @@
     width: 100%;
     max-width: 900px;
     margin: 80px auto 0;
+    padding-bottom: 48px;
 }
 
 .usecase-stack__taxi {
@@ -646,8 +669,6 @@
     position: relative;
     z-index: 1;
 }
-/* 헤드라이트 빔 */
-.usecase-stack__taxi::after { display: none; }
 
 .usecase-stack__beam {
     position: absolute;
@@ -829,15 +850,26 @@ mark.hl {
 
 /* 모바일 */
 @media (max-width: 767px) and (min-width: 320px) {
-    .usecase-stack { gap: 10px; margin-top: 32px; }
-    .usecase-stack__row--3,
-    .usecase-stack__row--2 { transform: none; max-width: 100%; }
-    .usecase-stack__row--1 { max-width: 100%; }
+    .usecase-stack { gap: 12px; margin-top: 32px; padding-bottom: 24px; }
+    .usecase-stack__row {
+        flex-direction: column;
+        align-items: center;
+        transform: none !important;
+        max-width: 100% !important;
+    }
+    .usecase-stack__row--1,
+    .usecase-stack__row--2,
+    .usecase-stack__row--3 { max-width: 100%; }
+    .usecase-stack__row--1 { margin-top: 32px; }
     .usecase-stack__taxi { width: 240px; }
-    .usecase-card--lg { padding: 20px; }
-    .usecase-card--lg .usecase-card__title { font-size: 1.125rem; }
-    .usecase-card--lg .usecase-card__icon  { font-size: 1.75rem; }
-    .usecase-stack__row--3 { flex-wrap: wrap; }
+    .usecase-card {
+        width: 100%;
+        max-width: 360px;
+    }
+    .usecase-card--lg { padding: 16px 24px; }
+    .usecase-card--lg .usecase-card__title { font-size: 1rem; white-space: normal; }
+    .usecase-card--md .usecase-card__title,
+    .usecase-card--sm .usecase-card__title { white-space: normal; }
 }
 
 
@@ -853,9 +885,10 @@ mark.hl {
 
 .driver__layout {
     display: grid;
-    grid-template-columns: 5fr 6fr;
-    gap: 80px;
-    align-items: stretch;
+    grid-template-columns: 2fr 3fr;
+    gap: 64px;
+    align-items: center;
+    justify-content: center;
     margin-top: 40px;
 }
 
@@ -872,7 +905,7 @@ mark.hl {
     width: 100%;
     max-width: 340px;
     aspect-ratio: 480 / 620;
-    align-self: stretch;
+    align-self: center;
     margin-inline: auto;
 }
 .driver__track {
@@ -880,7 +913,6 @@ mark.hl {
     width: 100%;
     max-width: 340px;
     aspect-ratio: 480 / 620;
-    align-self: stretch;
 }
 .driver__slide-item {
     position: absolute;
@@ -918,19 +950,19 @@ mark.hl {
 }
 .driver__overlay {
     position: absolute;
-    left: 0.5rem;
-    right: 0.5rem;
-    bottom: 0.5rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 4;
-    background: rgba(15, 15, 15, 0.55);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 0.5rem 0.75rem;
+    background: rgba(10, 10, 10, 0.10);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: none;
+    border-radius: 0 0 20px 20px;
+    padding: 0.75rem 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
     align-items: center;
     text-align: center;
 }
@@ -957,6 +989,11 @@ mark.hl {
     border: 1px solid rgba(251, 255, 38, 0.38);
     color: #f5f278;
 }
+.driver__badge--trips {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.85);
+}
 .driver__overlay-info {
     display: flex;
     flex-direction: column;
@@ -965,7 +1002,7 @@ mark.hl {
 }
 .driver__overlay-name {
     font-family: 'Pretendard', sans-serif;
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 800;
     color: #fff;
     line-height: 1.1;
@@ -979,14 +1016,14 @@ mark.hl {
     gap: 0.25rem;
 }
 .driver__stars {
-    font-size: 11px;
+    font-size: 9px;
     color: #F5F278;
     letter-spacing: 1px;
     line-height: 1;
 }
 .driver__score {
     font-family: 'Pretendard', sans-serif;
-    font-size: 11px;
+    font-size: 9px;
     font-weight: 700;
     color: rgba(255,255,255,0.9);
     line-height: 1;
@@ -1015,7 +1052,7 @@ mark.hl {
 .driver__checklist {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 40px;
     list-style: none;
 }
 .driver__checklist li {
@@ -1055,6 +1092,7 @@ mark.hl {
     .driver__track {
         width: 100%;
         max-width: 340px;
+        aspect-ratio: 480 / 620;
     }
     .driver__content { text-align: center; }
     .driver__checklist { align-items: center; }
@@ -1086,6 +1124,7 @@ mark.hl {
     .driver__track {
         width: 100%;
         max-width: 340px;
+        aspect-ratio: 480 / 620;
     }
 }
 
