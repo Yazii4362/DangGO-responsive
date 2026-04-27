@@ -79,9 +79,10 @@
     --sp-title-gap: 1.25rem;
 
 
-    --container-width: 82.5rem;
+    --container-width: 1440px;
     --grid-cols:       12;
-    --grid-gutter:     1.5rem;
+    --grid-gutter:     24px;
+    --grid-col-width:  98px;
 
  
     --r-sm:   0.625rem;
@@ -103,24 +104,10 @@
 }
 
 
-@media (max-width: 1400px) and (min-width: 1280px) {
-    :root {
-        --container-width: 76rem;
-    }
-}
-
-@media (max-width: 1200px) and (min-width: 1024px) {
-    :root {
-        --fs-h1:    2.75rem;
-        --fs-h2:    2.25rem;
-        --fs-h3:    1.875rem;
-        --fs-h4:    1.375rem;
-        --sp-section: 5.5rem;
-    }
-}
-
+/* 태블릿: 768px ~ 1024px */
 @media (max-width: 1024px) and (min-width: 768px) {
     :root {
+        --container-width: 100%;
         --fs-h1:    2.5rem;
         --fs-h2:    2rem;
         --fs-h3:    1.5rem;
@@ -132,8 +119,10 @@
     }
 }
 
-@media (max-width: 767px) and (min-width: 320px) {
+/* 모바일: 390px ~ 767px */
+@media (max-width: 767px) and (min-width: 390px) {
     :root {
+        --container-width: 100%;
         --fs-h1:    2.25rem;
         --fs-h2:    1.75rem;
         --fs-h3:    1.25rem;
@@ -186,12 +175,12 @@ img     { max-width: 100%; display: block; }
 
 .container {
     width: 100%;
-    max-width: 1320px;
+    max-width: 1440px;
     margin-inline: auto;
     padding-inline: 40px;
 }
 
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .container {
         padding-inline: 20px;
     }
@@ -491,7 +480,7 @@ img     { max-width: 100%; display: block; }
     opacity: 1;
 }
 
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .about .road-dash {
         height: 4px;
         background-image: repeating-linear-gradient(
@@ -560,7 +549,7 @@ img     { max-width: 100%; display: block; }
     .grid-4 { grid-template-columns: repeat(2, 1fr); }
     .grid-12 { grid-template-columns: repeat(6, 1fr); }
 }
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .grid-4  { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .grid-2  { grid-template-columns: 1fr; }
     .grid-12 { grid-template-columns: 1fr; gap: 20px; }
@@ -626,7 +615,7 @@ img     { max-width: 100%; display: block; }
     opacity: .65;
 }
 
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .review-stats {
         gap: 24px 0;
         justify-content: center;
@@ -702,7 +691,7 @@ img     { max-width: 100%; display: block; }
 }
 
 /* ??? 18. VISIBILITY HELPERS ??????????????????? */
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .hide-mobile { display: none ; }
     .show-mobile { display: block; }
     .nav         { display: none ; }

@@ -81,7 +81,7 @@
     color: #1E1E1E;
 }
 
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .header {
         display: none;
     }
@@ -239,6 +239,29 @@
     height: 110px;
     flex-shrink: 0;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kv__scroll-hint {
+    display: none;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    white-space: nowrap;
+}
+
+@media (max-width: 767px) and (min-width: 390px) {
+    .kv__scroll-hint { display: block; }
 }
 
 .kv__road::after {
@@ -268,7 +291,7 @@
     }
 }
 
-@media (max-width: 767px) and (min-width: 320px) {}
+@media (max-width: 767px) and (min-width: 390px) {}
 
 .floating-1 {
     --_rotate: -6deg;
@@ -380,7 +403,7 @@
     }
 }
 
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .btn-store--google {
         display: inline-flex;
     }
@@ -657,7 +680,7 @@
     }
 }
 
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .howto__header {
         align-items: center;
         text-align: center;
@@ -1062,7 +1085,7 @@ mark.hl {
 }
 
 /* 모바일 */
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .usecase-stack {
         gap: 12px;
         margin-top: 32px;
@@ -1382,7 +1405,7 @@ mark.hl {
     }
 }
 
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .driver__layout {
         display: flex;
         flex-direction: column;
@@ -1459,7 +1482,7 @@ mark.hl {
     opacity: .65;
 }
 
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .review-stats {
         gap: 24px 0;
     }
@@ -1612,7 +1635,7 @@ mark.hl {
     height: calc(0.8125rem * 1.5 * 3);
 }
 
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .review-marquee .review-cards {
         animation-duration: 40s;
     }
@@ -1716,7 +1739,7 @@ mark.hl {
     }
 }
 
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .cta__inner {
         display: flex;
         flex-direction: column;
@@ -1817,7 +1840,7 @@ mark.hl {
 }
 
 
-@media (max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 390px) {
     .footer__inner {
         align-items: center;
         text-align: center;
