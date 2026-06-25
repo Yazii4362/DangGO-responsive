@@ -58,6 +58,14 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Tossface';
+    src: url('../fonts/TossFaceFontMac.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 /* ============================================================
  * 2. Design Tokens
@@ -106,6 +114,7 @@
     /* Font Family */
     --font-headline: 'TmoneyRoundWind', sans-serif;
     --font-body:     'Pretendard', sans-serif;
+    --font-emoji:    'Tossface', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
 
     /* Font Size */
     --fs-h1:    3rem;
@@ -298,6 +307,35 @@ p { font-size: var(--fs-b1); line-height: 1.6; }
  * ============================================================ */
 .font-headline { font-family: var(--font-headline); }
 .font-body     { font-family: var(--font-body); }
+
+.emoji {
+    font-family: var(--font-emoji);
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: -0.08em;
+}
+
+.emoji--lg {
+    font-size: 1.35em;
+}
+
+.emoji--block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.pill-badge .emoji,
+.driver__badge .emoji {
+    margin-right: 0.2em;
+}
+
+.hero-badge__trophy.emoji {
+    font-size: 1.125rem;
+}
 
 .fs-h1 { font-size: var(--fs-h1); }
 .fs-h2 { font-size: var(--fs-h2); }

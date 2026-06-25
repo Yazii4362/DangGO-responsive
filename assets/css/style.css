@@ -250,7 +250,7 @@
 .kv__road {
     width: 100%;
     height: 110px;
-    background-color: #2b2b2b;
+    background-color: #D8D8D8;
     flex-shrink: 0;
     position: relative;
     display: flex;
@@ -266,8 +266,8 @@
     height: 7px;
     background-image: repeating-linear-gradient(
         to right,
-        rgba(255, 255, 255, 0.85) 0,
-        rgba(255, 255, 255, 0.85) 18px,
+        rgba(255, 255, 255, 0.9) 0,
+        rgba(255, 255, 255, 0.9) 18px,
         transparent 18px,
         transparent 56px
     );
@@ -859,11 +859,11 @@
     position: absolute;
     inset: auto 0 0 0;
     height: 80px;
-    background-color: #222222;
+    background-color: #D8D8D8;
     background-image: repeating-linear-gradient(
         to right,
-        rgba(255, 255, 255, 0.8) 0,
-        rgba(255, 255, 255, 0.8) 16px,
+        rgba(255, 255, 255, 0.9) 0,
+        rgba(255, 255, 255, 0.9) 16px,
         transparent 16px,
         transparent 44px
     );
@@ -2032,11 +2032,1147 @@ mark.hl {
 
 /* MAP */
 .map-section {
-    background-color: #302F32;
+    background-color: #F5F3F0;
 }
-.map-section .section-label { color: #F5F278; }
-.map-section .section-title { color: #F9F4EE; }
-.map-section .section-sub   { color: #F9F4EE; opacity: 0.7; }
+.map-section .section-label { color: #1E1E1E; opacity: 0.6; }
+.map-section .section-title { color: #1E1E1E; }
+.map-section .section-sub   { color: #1E1E1E; opacity: 0.5; }
+
+/* ============================================================
+ * 댕고가 필요한 순간들 (Needed Moments)
+ * ============================================================ */
+.needed-moments {
+    background-color: #F9F7F4;
+    padding: 80px 0;
+}
+
+.needed-moments .section-title {
+    color: #1E1E1E;
+    margin-bottom: 12px;
+}
+
+.needed-moments .section-sub {
+    color: #1E1E1E;
+    opacity: 0.6;
+}
+
+.moments-categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 840px;
+    margin: 48px auto 0;
+}
+
+.moments-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 16px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.moments-category:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.moments-category__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+}
+
+.moments-category__icon--hospital { background-color: #FFE9E9; }
+.moments-category__icon--salon    { background-color: #FFE9E0; }
+.moments-category__icon--cafe     { background-color: #FFEFD5; }
+.moments-category__icon--park     { background-color: #E0F5E0; }
+.moments-category__icon--shopping { background-color: #F5E8D8; }
+.moments-category__icon--beach    { background-color: #E0EFFF; }
+.moments-category__icon--airport  { background-color: #E0F0FF; }
+.moments-category__icon--kindergarten { background-color: #F0E8F5; }
+
+.moments-category__label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1E1E1E;
+}
+
+@media (max-width: 767px) {
+    .needed-moments {
+        padding: 60px 0;
+    }
+    
+    .moments-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        max-width: 100%;
+    }
+    
+    .moments-category {
+        padding: 20px 12px;
+    }
+    
+    .moments-category__icon {
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+    }
+    
+    .moments-category__label {
+        font-size: 0.875rem;
+    }
+}
+
+/* ============================================================
+ * 반려가족의 지도를 넓혀보세요 (Journey Map)
+ * ============================================================ */
+.journey-map {
+    background-color: #F9F7F4;
+    padding: 80px 0;
+}
+
+.journey-map .section-title {
+    color: #1E1E1E;
+    margin-bottom: 12px;
+}
+
+.journey-map .section-sub {
+    color: #1E1E1E;
+    opacity: 0.6;
+}
+
+.journey-map__visual {
+    position: relative;
+    max-width: 900px;
+    margin: 48px auto 0;
+    aspect-ratio: 900 / 420;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%),
+        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0, 0, 0, 0.03) 39px, rgba(0, 0, 0, 0.03) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0, 0, 0, 0.03) 39px, rgba(0, 0, 0, 0.03) 40px),
+        #F0EDE8;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.journey-map__svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.journey-map__route {
+    fill: none;
+    stroke: #F5C842;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-dasharray: 4 14;
+}
+
+.journey-point {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    z-index: 2;
+}
+
+.journey-point__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.journey-point__label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #1E1E1E;
+    white-space: nowrap;
+}
+
+.journey-point--home     { left: 4%;  top: 68%; }
+.journey-point--cafe     { left: 22%; top: 34%; }
+.journey-point--hospital { left: 42%; top: 22%; }
+.journey-point--park     { left: 62%; top: 38%; }
+.journey-point--beach    { left: 82%; top: 58%; }
+
+.journey-map__car {
+    position: absolute;
+    left: 48%;
+    top: 42%;
+    width: 88px;
+    z-index: 3;
+    transform: rotate(-8deg);
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+}
+
+.journey-map__car img {
+    width: 100%;
+    height: auto;
+}
+
+/* ============================================================
+ * 댕고는 이렇게 이동해요 (Trip Flow Scroll)
+ * ============================================================ */
+.trip-flow {
+    background: linear-gradient(180deg, #F7FBF8 0%, #FFFFFF 100%);
+    padding: 80px 0 40px;
+}
+
+.trip-flow__header {
+    max-width: 520px;
+    margin-bottom: 48px;
+}
+
+.trip-flow__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    font-family: var(--font-headline);
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: #1E1E1E;
+    margin-bottom: 16px;
+}
+
+.trip-flow .section-title {
+    color: #1E1E1E;
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+.trip-flow .section-sub {
+    color: #1E1E1E;
+    opacity: 0.6;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.trip-flow__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+    gap: 48px;
+    align-items: start;
+}
+
+.trip-flow__steps {
+    position: relative;
+    padding-left: 8px;
+}
+
+.trip-flow__steps::before {
+    content: '';
+    position: absolute;
+    left: 35px;
+    top: 28px;
+    bottom: 28px;
+    width: 2px;
+    background: repeating-linear-gradient(
+        to bottom,
+        #D8D8D8 0,
+        #D8D8D8 6px,
+        transparent 6px,
+        transparent 12px
+    );
+}
+
+.trip-flow__step {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    min-height: 72vh;
+    padding: 24px 0;
+    align-content: start;
+    opacity: 0.45;
+    transition: opacity 0.35s ease;
+}
+
+.trip-flow__step.is-active {
+    opacity: 1;
+}
+
+.trip-flow__step-marker {
+    position: relative;
+    z-index: 1;
+}
+
+.trip-flow__step-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    font-size: 1.625rem;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.trip-flow__step.is-active .trip-flow__step-icon {
+    transform: scale(1.08);
+    box-shadow: 0 8px 28px rgba(245, 200, 66, 0.35);
+}
+
+.trip-flow__step-title {
+    font-family: var(--font-headline);
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: #1E1E1E;
+    margin-bottom: 8px;
+}
+
+.trip-flow__step-num {
+    color: #BDBDBD;
+    margin-right: 6px;
+}
+
+.trip-flow__step.is-active .trip-flow__step-num {
+    color: #F5A623;
+}
+
+.trip-flow__step-desc {
+    font-size: 0.9375rem;
+    color: #1E1E1E;
+    opacity: 0.65;
+    line-height: 1.65;
+    max-width: 380px;
+}
+
+.trip-flow__preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12px;
+    position: sticky;
+    top: 96px;
+    align-self: start;
+}
+
+.trip-flow__bubble {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 320px;
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    background: #FFF9D6;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.trip-flow__bubble-car {
+    width: 48px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.trip-flow__bubble p {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #1E1E1E;
+    line-height: 1.45;
+}
+
+.trip-flow__phone {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 300 / 620;
+    background: #1E1E1E;
+    border-radius: 36px;
+    padding: 12px;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+}
+
+.trip-flow__phone-notch {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 88px;
+    height: 22px;
+    background: #1E1E1E;
+    border-radius: 0 0 14px 14px;
+    z-index: 5;
+}
+
+.trip-flow__screens {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #F5F7FA;
+}
+
+.app-screen {
+    position: absolute;
+    inset: 0;
+    padding: 36px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(0.98);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    overflow-y: auto;
+}
+
+.app-screen.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.app-screen__status {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #1E1E1E;
+    text-align: center;
+}
+
+.app-screen__status--success {
+    color: #16A34A;
+}
+
+.app-screen__card,
+.app-screen__notify,
+.app-screen__route-summary,
+.app-screen__report,
+.app-screen__trip-info,
+.app-screen__floating-card {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.app-screen__label {
+    font-size: 0.6875rem;
+    color: #888;
+    margin-bottom: 4px;
+}
+
+.app-screen__value {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #1E1E1E;
+}
+
+.app-screen__calendar {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 12px;
+}
+
+.app-screen__calendar-head {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.app-screen__calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    font-size: 0.625rem;
+    text-align: center;
+    color: #666;
+}
+
+.app-screen__calendar-grid .is-selected {
+    background: var(--color-primary);
+    color: #1E1E1E;
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+.app-screen__cta {
+    margin-top: auto;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #1E1E1E;
+    color: #FFFFFF;
+    font-size: 0.8125rem;
+    font-weight: 700;
+}
+
+.app-screen__driver-card,
+.app-screen__driver-row,
+.app-screen__chat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.app-screen__driver-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #FFF5D6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #1E1E1E;
+    flex-shrink: 0;
+}
+
+.app-screen__driver-name {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #1E1E1E;
+}
+
+.app-screen__driver-meta {
+    font-size: 0.6875rem;
+    color: #888;
+}
+
+.app-screen__notify {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.app-screen__notify-title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #1E1E1E;
+}
+
+.app-screen__notify-desc {
+    font-size: 0.6875rem;
+    color: #888;
+    margin-top: 4px;
+}
+
+.app-screen__route-summary p,
+.app-screen__trip-info p {
+    font-size: 0.6875rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.app-screen__route-summary strong,
+.app-screen__trip-info em {
+    font-style: normal;
+    font-weight: 700;
+    color: #1E1E1E;
+    margin-right: 6px;
+}
+
+.app-screen__map-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    padding: 0 4px;
+}
+
+.app-screen__map-header strong {
+    color: #F5A623;
+}
+
+.app-screen__floating-title {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #1E1E1E;
+    margin-bottom: 8px;
+}
+
+.app-screen__driver-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+    font-size: 0.875rem;
+}
+
+.app-screen__map {
+    position: relative;
+    flex: 1;
+    min-height: 180px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #E8F4EA 0%, #D4E8D8 100%);
+    overflow: hidden;
+}
+
+.app-screen__map-route {
+    position: absolute;
+    inset: 20% 15% 25% 20%;
+    border: 3px dashed #F5C842;
+    border-radius: 40% 60% 50% 40%;
+}
+
+.app-screen__map-car {
+    position: absolute;
+    left: 48%;
+    top: 42%;
+    width: 44px;
+    transform: rotate(-12deg);
+}
+
+.app-screen__map-pin {
+    position: absolute;
+    font-size: 0.5625rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.3;
+    padding: 4px 6px;
+    border-radius: 8px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.app-screen__map-pin--start {
+    left: 8%;
+    top: 18%;
+}
+
+.app-screen__map-pin--end {
+    right: 8%;
+    bottom: 12%;
+    background: #FFF5D6;
+}
+
+.app-screen__trip-info-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.app-screen__chat-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.app-screen__chat-bubble {
+    max-width: 85%;
+    padding: 10px 12px;
+    border-radius: 14px;
+    font-size: 0.6875rem;
+    line-height: 1.45;
+}
+
+.app-screen__chat-bubble--driver {
+    align-self: flex-start;
+    background: #FFFFFF;
+    color: #1E1E1E;
+}
+
+.app-screen__chat-bubble--user {
+    align-self: flex-end;
+    background: #1E1E1E;
+    color: #FFFFFF;
+}
+
+.app-screen__chat-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 12px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    font-size: 0.6875rem;
+    color: #AAA;
+}
+
+.app-screen__chat-input button {
+    border: none;
+    background: var(--color-primary);
+    color: #1E1E1E;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+.app-screen__arrival-hero {
+    text-align: center;
+    padding: 16px 12px;
+    background: #FFFFFF;
+    border-radius: 14px;
+}
+
+.app-screen__arrival-icon {
+    font-size: 2rem;
+}
+
+.app-screen__arrival-title {
+    font-size: 0.9375rem;
+    font-weight: 800;
+    color: #1E1E1E;
+    margin-top: 8px;
+}
+
+.app-screen__arrival-time {
+    font-size: 0.6875rem;
+    color: #888;
+    margin-top: 4px;
+}
+
+.app-screen__report-title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.app-screen__report ul {
+    font-size: 0.6875rem;
+    color: #555;
+    line-height: 1.6;
+    padding-left: 16px;
+}
+
+@media (max-width: 1024px) {
+    .trip-flow__layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .trip-flow__preview {
+        order: -1;
+        position: sticky;
+        top: 88px;
+        z-index: 2;
+    }
+
+    .trip-flow__step {
+        min-height: auto;
+        padding: 20px 0;
+    }
+
+    .trip-flow__steps::before {
+        bottom: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    .trip-flow {
+        padding: 60px 0 24px;
+    }
+
+    .trip-flow__phone {
+        max-width: 260px;
+    }
+
+    .trip-flow__step {
+        grid-template-columns: 56px 1fr;
+        gap: 14px;
+    }
+
+    .trip-flow__step-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+    }
+
+    .trip-flow__steps::before {
+        left: 27px;
+    }
+}
+
+/* ============================================================
+ * 댕고로 확보하는 소중한 시간 (Price Compare)
+ * ============================================================ */
+.price-compare {
+    background-color: #F9F7F4;
+    padding: 80px 0;
+}
+
+.price-compare .section-title {
+    color: #1E1E1E;
+    margin-bottom: 12px;
+}
+
+.price-compare .section-sub {
+    color: #1E1E1E;
+    opacity: 0.6;
+    margin-bottom: 40px;
+}
+
+.compare-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.compare-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 36px 28px 32px;
+    border-radius: 20px;
+    min-height: 380px;
+}
+
+.compare-card--regular {
+    background: #FFFFFF;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.compare-card--danggo {
+    background: #FFF9E6;
+    box-shadow: 0 2px 12px rgba(245, 200, 66, 0.2);
+}
+
+.compare-card__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1E1E1E;
+    margin-bottom: 8px;
+}
+
+.compare-card__desc {
+    font-size: 0.9375rem;
+    color: #1E1E1E;
+    opacity: 0.6;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.compare-card__time {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 32px;
+}
+
+.compare-card__number {
+    font-family: var(--font-headline);
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #1E1E1E;
+}
+
+.compare-card--danggo .compare-card__number {
+    color: #1E1E1E;
+}
+
+.compare-card__unit {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: inherit;
+    opacity: 0.8;
+}
+
+.compare-card__icon {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.compare-card__icon--split {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+.compare-card__icon--split img {
+    width: 130px;
+    height: auto;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+.compare-card__icon--clock svg,
+.compare-card__icon--split svg {
+    flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+    .compare-cards {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 767px) {
+    .journey-map,
+    .trip-flow,
+    .price-compare {
+        padding: 60px 0;
+    }
+
+    .journey-map__visual {
+        margin-top: 32px;
+        aspect-ratio: 4 / 5;
+    }
+
+    .journey-point__icon {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+
+    .journey-point__label {
+        font-size: 0.75rem;
+    }
+
+    .journey-point--home     { left: 6%;  top: 72%; }
+    .journey-point--cafe     { left: 18%; top: 38%; }
+    .journey-point--hospital { left: 38%; top: 18%; }
+    .journey-point--park     { left: 58%; top: 32%; }
+    .journey-point--beach    { left: 76%; top: 62%; }
+
+    .journey-map__car {
+        width: 64px;
+        left: 44%;
+        top: 48%;
+    }
+
+    .compare-cards {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+    }
+
+    .compare-card {
+        min-height: 280px;
+        padding: 28px 20px 24px;
+    }
+
+    .compare-card__number {
+        font-size: 2.75rem;
+    }
+}
+
+/* ============================================================
+ * (legacy) 이용이 더 쉬워지는 댕고의 서비스 — removed from HTML
+ * ============================================================ */
+.service-features {
+    background-color: #FFF9F0;
+    padding: 80px 0;
+}
+
+.service-features .section-title {
+    color: #1E1E1E;
+    margin-bottom: 48px;
+}
+
+.service-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.service-step {
+    display: grid;
+    grid-template-columns: 60px 1fr 320px;
+    gap: 24px;
+    align-items: center;
+    background: #FFFFFF;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+}
+
+.service-step__number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #FFF5E1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #F5A623;
+}
+
+.service-step__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.service-step__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1E1E1E;
+}
+
+.service-step__desc {
+    font-size: 0.9375rem;
+    color: #1E1E1E;
+    opacity: 0.7;
+    line-height: 1.6;
+}
+
+.service-step__mockup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-step__mockup img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 12px;
+}
+
+@media (max-width: 1024px) {
+    .service-step {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 24px;
+    }
+    
+    .service-step__mockup {
+        order: -1;
+    }
+    
+    .service-step__mockup img {
+        max-width: 240px;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-features {
+        padding: 60px 0;
+    }
+    
+    .service-steps {
+        gap: 24px;
+    }
+    
+    .service-step {
+        padding: 20px;
+    }
+    
+    .service-step__number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .service-step__title {
+        font-size: 1.125rem;
+    }
+    
+    .service-step__desc {
+        font-size: 0.875rem;
+    }
+    
+    .service-step__mockup img {
+        max-width: 200px;
+    }
+}
+
+/* 카테고리 아이콘 그리드 */
+.map-categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 840px;
+    margin: 40px auto 0;
+}
+
+.map-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 16px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.map-category:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.map-category__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.map-category__icon--hospital { background-color: #FFE9E9; }
+.map-category__icon--salon    { background-color: #FFE9E0; }
+.map-category__icon--cafe     { background-color: #FFEFD5; }
+.map-category__icon--park     { background-color: #E0F5E0; }
+.map-category__icon--shopping { background-color: #F5E8D8; }
+.map-category__icon--beach    { background-color: #E0EFFF; }
+.map-category__icon--airport  { background-color: #E0F0FF; }
+.map-category__icon--kindergarten { background-color: #F0E8F5; }
+
+.map-category__label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1E1E1E;
+}
+
+@media (max-width: 767px) {
+    .map-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        max-width: 100%;
+    }
+    
+    .map-category {
+        padding: 20px 12px;
+    }
+    
+    .map-category__icon {
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+    }
+    
+    .map-category__label {
+        font-size: 0.875rem;
+    }
+}
 
 #kakao-map {
     width: 100%;

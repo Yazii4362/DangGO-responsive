@@ -1,270 +1,397 @@
-/**
- * DangGO Landing — Main Script
- *
- * 1. Header  : 스크롤 시 다크 전환
- * 2. Driver  : 자동 슬라이드 + dot 네비 + swipe/drag
- */
+// ============================================================
+// DangGO Main JavaScript
+// GSAP 애니메이션 및 인터랙션
+// ============================================================
 
-(() => {
-    'use strict';
+// GSAP 플러그인 등록
+gsap.registerPlugin(ScrollTrigger);
 
-    /* ==========================================================
-     * 1. Header Scroll Toggle
-     * ========================================================== */
-    const initHeaderScroll = () => {
-        const header = document.querySelector('.header');
-        if (!header) return;
+// ============================================================
+// 1. 히어로 섹션 애니메이션
+// ============================================================
+function initHeroAnimation() {
+  // 타임라인 생성
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-        const SCROLL_THRESHOLD = 80;
-        const onScroll = () => {
-            header.classList.toggle('header--scrolled', window.scrollY > SCROLL_THRESHOLD);
-        };
+  // 배지 등장
+  tl.from('.hero-badge', {
+    y: -30,
+    opacity: 0,
+    duration: 0.8,
+    delay: 0.2
+  });
 
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll(); // 초기 상태 동기화
-    };
+  // 타이틀 라인별 등장
+  tl.from('.kv__title-line', {
+    y: 40,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.15
+  }, '-=0.4');
 
+  // 하이라이트 애니메이션
+  tl.from('.hl', {
+    backgroundSize: '0% 100%',
+    duration: 0.6,
+    stagger: 0.2
+  }, '-=0.5');
 
-    /* ==========================================================
-     * 2. Driver Slider
-     *    - 자동 슬라이드 (3.5s)
-     *    - dot 네비게이션
-     *    - touch swipe / mouse drag
-     * ========================================================== */
-    const initDriverSlider = () => {
-        const items = document.querySelectorAll('.driver__slide-item');
-        const dots  = document.querySelectorAll('.driver__dot');
-        const track = document.querySelector('.driver__slides');
+  // 서브 텍스트 등장
+  tl.from('.kv__sub-line', {
+    y: 20,
+    opacity: 0,
+    duration: 0.6,
+    stagger: 0.1
+  }, '-=0.4');
 
-        if (!items.length || !dots.length || !track) return;
+  // 버튼 등장
+  tl.from('.kv__btns .btn-store', {
+    y: 20,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.1
+  }, '-=0.3');
 
-        const AUTO_INTERVAL = 3500;
-        const SWIPE_THRESHOLD = 40;
+  // 택시 이미지 등장
+  tl.from('.kv__taxi', {
+    scale: 0.8,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'back.out(1.4)'
+  }, '-=0.6');
 
-        let currentIndex = 0;
-        let autoTimer = null;
+  // 플로팅 배지 등장
+  tl.from('.floating-badge', {
+    scale: 0,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.1,
+    ease: 'back.out(2)'
+  }, '-=0.5');
 
-        const goTo = (idx) => {
-            items[currentIndex].classList.remove('is-active');
-            dots[currentIndex].classList.remove('is-active');
+  // 스크롤 힌트 애니메이션
+  gsap.to('.kv__scroll-hint', {
+    y: 10,
+    duration: 1.5,
+    repeat: -1,
+    yoyo: true,
+    ease: 'power1.inOut'
+  });
+}
 
-            currentIndex = (idx + items.length) % items.length;
+// ============================================================
+// 2. 섹션 진입 애니메이션
+// ============================================================
+function initScrollAnimations() {
+  // 섹션 타이틀 애니메이션
+  gsap.utils.toArray('.section-title').forEach(title => {
+    gsap.from(title, {
+      scrollTrigger: {
+        trigger: title,
+        start: 'top 80%',
+        end: 'top 50%',
+        toggleActions: 'play none none reverse'
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out'
+    });
+  });
 
-            items[currentIndex].classList.add('is-active');
-            dots[currentIndex].classList.add('is-active');
-        };
+  // 섹션 서브텍스트 애니메이션
+  gsap.utils.toArray('.section-sub').forEach(sub => {
+    gsap.from(sub, {
+      scrollTrigger: {
+        trigger: sub,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      },
+      y: 30,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+  });
 
-        const startAuto = () => {
-            stopAuto();
-            autoTimer = setInterval(() => goTo(currentIndex + 1), AUTO_INTERVAL);
-        };
+  // 카테고리 카드 애니메이션
+  gsap.utils.toArray('.moments-category').forEach((card, index) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      },
+      y: 40,
+      opacity: 0,
+      duration: 0.6,
+      delay: index * 0.05,
+      ease: 'power2.out'
+    });
+  });
 
-        const stopAuto = () => {
-            if (autoTimer) clearInterval(autoTimer);
-            autoTimer = null;
-        };
+  // 서비스 스텝 애니메이션
+  gsap.utils.toArray('.service-step').forEach((step, index) => {
+    gsap.from(step, {
+      scrollTrigger: {
+        trigger: step,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      },
+      x: index % 2 === 0 ? -50 : 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out'
+    });
+  });
 
-        const restartAuto = () => {
-            stopAuto();
-            startAuto();
-        };
+  // 사용법 스텝 애니메이션
+  gsap.utils.toArray('.trip-flow__step').forEach((step) => {
+    gsap.from(step.querySelector('.trip-flow__step-body'), {
+      scrollTrigger: {
+        trigger: step,
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      },
+      y: 24,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+  });
 
-        // dot 클릭
-        dots.forEach((dot) => {
-            dot.addEventListener('click', () => {
-                const idx = parseInt(dot.dataset.index, 10);
-                if (Number.isNaN(idx)) return;
-                goTo(idx);
-                restartAuto();
-            });
+  // 비교 카드 애니메이션
+  gsap.utils.toArray('.compare-card').forEach((card, index) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      },
+      scale: 0.9,
+      opacity: 0,
+      duration: 0.6,
+      delay: index * 0.2,
+      ease: 'back.out(1.4)'
+    });
+  });
+
+  // 활용사례 카드 애니메이션
+  gsap.utils.toArray('.usecase-card').forEach((card, index) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      },
+      y: 40,
+      opacity: 0,
+      duration: 0.6,
+      delay: index * 0.08,
+      ease: 'power2.out'
+    });
+  });
+
+  // 드라이버 체크리스트 애니메이션
+  gsap.utils.toArray('.driver__checklist li').forEach((item, index) => {
+    gsap.from(item, {
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      },
+      x: -30,
+      opacity: 0,
+      duration: 0.5,
+      delay: index * 0.1,
+      ease: 'power2.out'
+    });
+  });
+}
+
+// ============================================================
+// 3. 택시 패럴랙스 효과
+// ============================================================
+function initParallax() {
+  // KV 택시
+  gsap.to('.kv__taxi', {
+    scrollTrigger: {
+      trigger: '.kv',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 1
+    },
+    y: 100,
+    ease: 'none'
+  });
+
+  // 활용사례 택시
+  gsap.to('.usecase-stack__taxi', {
+    scrollTrigger: {
+      trigger: '.features',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1
+    },
+    x: '+=50',
+    ease: 'none'
+  });
+}
+
+// ============================================================
+// 4. 숫자 카운트업 애니메이션
+// ============================================================
+function initCountUp() {
+  const numberElements = document.querySelectorAll('.compare-card__number');
+  
+  numberElements.forEach(el => {
+    const finalNumber = parseInt(el.textContent);
+    
+    gsap.from(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      },
+      textContent: 0,
+      duration: 2,
+      ease: 'power1.out',
+      snap: { textContent: 1 },
+      onUpdate: function() {
+        el.textContent = Math.ceil(this.targets()[0].textContent);
+      }
+    });
+  });
+}
+
+// ============================================================
+// 5. 이동 과정 스크롤 연동 (Trip Flow)
+// ============================================================
+function initTripFlow() {
+  const steps = document.querySelectorAll('.trip-flow__step');
+  const screens = document.querySelectorAll('.trip-flow__screens .app-screen');
+
+  if (!steps.length || !screens.length) return;
+
+  let activeIndex = 0;
+
+  const setActive = (index) => {
+    if (index < 0 || index >= steps.length || index === activeIndex) return;
+
+    activeIndex = index;
+    steps.forEach((step, i) => step.classList.toggle('is-active', i === index));
+    screens.forEach((screen, i) => screen.classList.toggle('is-active', i === index));
+  };
+
+  steps.forEach((step, index) => {
+    ScrollTrigger.create({
+      trigger: step,
+      start: 'top center',
+      end: 'bottom center',
+      onEnter: () => setActive(index),
+      onEnterBack: () => setActive(index)
+    });
+  });
+
+  setActive(0);
+}
+
+// ============================================================
+// 6. 드라이버 슬라이더
+// ============================================================
+function initDriverSlider() {
+  const track = document.querySelector('.driver__track');
+  const dots = document.querySelectorAll('.driver__dot');
+  const slides = document.querySelectorAll('.driver__slide-item');
+  
+  if (!track || !dots.length) return;
+  
+  let currentIndex = 0;
+  let autoplayInterval;
+
+  function goToSlide(index) {
+    currentIndex = index;
+    
+    // 슬라이드 이동
+    slides.forEach(slide => slide.classList.remove('is-active'));
+    slides[index].classList.add('is-active');
+    
+    // 닷 활성화
+    dots.forEach(dot => dot.classList.remove('is-active'));
+    dots[index].classList.add('is-active');
+    
+    // 트랙 이동
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  // 닷 클릭 이벤트
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      goToSlide(index);
+      stopAutoplay();
+      startAutoplay();
+    });
+  });
+
+  // 자동 재생
+  function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % slides.length;
+      goToSlide(nextIndex);
+    }, 4000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoplayInterval);
+  }
+
+  startAutoplay();
+  
+  // 마우스 오버 시 자동재생 멈춤
+  track.addEventListener('mouseenter', stopAutoplay);
+  track.addEventListener('mouseleave', startAutoplay);
+}
+
+// ============================================================
+// 7. 스무스 스크롤 (앵커 링크)
+// ============================================================
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      
+      if (target) {
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: {
+            y: target,
+            offsetY: 80
+          },
+          ease: 'power3.inOut'
         });
+      }
+    });
+  });
+}
 
-        // touch swipe
-        let touchStartX = 0;
-        track.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-        }, { passive: true });
+// ============================================================
+// 8. 초기화
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  initHeroAnimation();
+  initScrollAnimations();
+  initParallax();
+  initCountUp();
+  initTripFlow();
+  initDriverSlider();
+  initSmoothScroll();
+  
+  // 페이지 로드 후 스크롤트리거 새로고침
+  ScrollTrigger.refresh();
+});
 
-        track.addEventListener('touchend', (e) => {
-            const diff = touchStartX - e.changedTouches[0].clientX;
-            if (Math.abs(diff) > SWIPE_THRESHOLD) {
-                goTo(diff > 0 ? currentIndex + 1 : currentIndex - 1);
-                restartAuto();
-            }
-        }, { passive: true });
-
-        // mouse drag (PC)
-        let mouseStartX = 0;
-        let isDragging = false;
-
-        track.addEventListener('mousedown', (e) => {
-            mouseStartX = e.clientX;
-            isDragging = true;
-        });
-
-        track.addEventListener('mouseup', (e) => {
-            if (!isDragging) return;
-            isDragging = false;
-            const diff = mouseStartX - e.clientX;
-            if (Math.abs(diff) > SWIPE_THRESHOLD) {
-                goTo(diff > 0 ? currentIndex + 1 : currentIndex - 1);
-                restartAuto();
-            }
-        });
-
-        track.addEventListener('mouseleave', () => {
-            isDragging = false;
-        });
-
-        startAuto();
-    };
-
-
-    /* ==========================================================
-     * 3. Kakao Map - Pet Places
-     * ========================================================== */
-    const initKakaoMap = () => {
-        const mapContainer = document.getElementById('kakao-map');
-        if (!mapContainer) {
-            console.log('Map container not found');
-            return;
-        }
-        
-        if (typeof kakao === 'undefined' || !kakao.maps) {
-            console.log('Kakao maps not loaded yet');
-            return;
-        }
-
-        try {
-            // 지도 중심 좌표 (서울 중심)
-            const mapCenter = new kakao.maps.LatLng(37.5665, 126.9780);
-            
-            const mapOption = {
-                center: mapCenter,
-                level: 8 // 확대 레벨 (1~14, 숫자가 클수록 넓은 범위)
-            };
-
-            const map = new kakao.maps.Map(mapContainer, mapOption);
-
-            // 댕고가 엄선한 펫플레이스 데이터
-            const petPlaces = [
-                // 강남구
-                { name: '강남 24시 동물병원', lat: 37.4979, lng: 127.0276, type: '병원' },
-                { name: '펫프렌즈 강남점', lat: 37.5012, lng: 127.0396, type: '미용' },
-                { name: '도그파크 강남', lat: 37.5089, lng: 127.0632, type: '놀이터' },
-                
-                // 서초구
-                { name: '서초 동물메디컬센터', lat: 37.4833, lng: 127.0322, type: '병원' },
-                { name: '펫살롱 서초', lat: 37.4876, lng: 127.0145, type: '미용' },
-                
-                // 송파구
-                { name: '송파 펫케어센터', lat: 37.5145, lng: 127.1059, type: '병원' },
-                { name: '몽실펫호텔', lat: 37.5048, lng: 127.0891, type: '호텔' },
-                
-                // 마포구
-                { name: '마포 동물병원', lat: 37.5663, lng: 126.9019, type: '병원' },
-                { name: '댕댕이 미용실 홍대점', lat: 37.5563, lng: 126.9236, type: '미용' },
-                { name: '펫파크 상암', lat: 37.5794, lng: 126.8895, type: '놀이터' },
-                
-                // 용산구
-                { name: '용산 펫클리닉', lat: 37.5311, lng: 126.9810, type: '병원' },
-                { name: '한강 펫파크', lat: 37.5219, lng: 126.9524, type: '놀이터' },
-                
-                // 성동구
-                { name: '성수 동물병원', lat: 37.5443, lng: 127.0557, type: '병원' },
-                { name: '펫스파 성수', lat: 37.5465, lng: 127.0467, type: '미용' },
-                
-                // 광진구
-                { name: '건대 24시 동물병원', lat: 37.5403, lng: 127.0695, type: '병원' },
-                
-                // 강서구
-                { name: '마곡 펫메디컬', lat: 37.5614, lng: 126.8253, type: '병원' },
-                { name: '펫호텔 강서', lat: 37.5509, lng: 126.8495, type: '호텔' },
-                
-                // 영등포구
-                { name: '여의도 동물병원', lat: 37.5219, lng: 126.9245, type: '병원' },
-                
-                // 종로구
-                { name: '종로 펫클리닉', lat: 37.5720, lng: 126.9910, type: '병원' },
-            ];
-
-            // 마커 이미지 설정 (타입별 색상)
-            const markerColors = {
-                '병원': '#FF6B6B',   // 빨강
-                '미용': '#4ECDC4',   // 청록
-                '호텔': '#FFD93D',   // 노랑
-                '놀이터': '#95E1D3'  // 민트
-            };
-
-            // 커스텀 오버레이 스타일
-            const createMarkerContent = (place) => {
-                const color = markerColors[place.type] || '#FF6B6B';
-                const emoji = place.type === '병원' ? '🏥' : 
-                             place.type === '미용' ? '✂️' : 
-                             place.type === '호텔' ? '🏨' : '🎾';
-                
-                return `
-                    <div style="
-                        padding: 8px 12px;
-                        background: ${color};
-                        color: white;
-                        border-radius: 20px;
-                        font-size: 12px;
-                        font-weight: 600;
-                        white-space: nowrap;
-                        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                    " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                        <span style="margin-right: 4px;">${emoji}</span>
-                        ${place.name}
-                    </div>
-                `;
-            };
-
-            // 마커 생성
-            petPlaces.forEach(place => {
-                const position = new kakao.maps.LatLng(place.lat, place.lng);
-                
-                // 커스텀 오버레이로 마커 생성
-                const customOverlay = new kakao.maps.CustomOverlay({
-                    position: position,
-                    content: createMarkerContent(place),
-                    yAnchor: 1
-                });
-
-                customOverlay.setMap(map);
-            });
-
-            // 지도 컨트롤 추가
-            const zoomControl = new kakao.maps.ZoomControl();
-            map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-            
-            console.log('Map initialized successfully with', petPlaces.length, 'places');
-        } catch (error) {
-            console.error('Error initializing map:', error);
-        }
-    };
-
-
-    /* ==========================================================
-     * Bootstrap
-     * ========================================================== */
-    const init = () => {
-        initHeaderScroll();
-        initDriverSlider();
-        
-        // 카카오맵은 window.load 이후에 초기화
-        if (document.readyState === 'complete') {
-            initKakaoMap();
-        } else {
-            window.addEventListener('load', initKakaoMap);
-        }
-    };
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
-})();
+// 리사이즈 시 스크롤트리거 새로고침
+window.addEventListener('resize', () => {
+  ScrollTrigger.refresh();
+});
