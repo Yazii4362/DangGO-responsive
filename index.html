@@ -9,53 +9,41 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/common.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/landing.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 
-<body>
+<body class="landing">
 
-    <!-- ============================================================
-         HEADER
-    ============================================================ -->
-    <header class="header">
-        <div class="container header__inner">
-            <a href="#" class="header__logo">
-                <img class="header__logo-img header__logo-img--dark" src="assets/images/danggo-logo.webp" alt="DangGO 로고">
-                <img class="header__logo-img header__logo-img--light" src="assets/images/danggo-logo-w.webp" alt="DangGO 로고">
+    <header class="landing-header">
+        <div class="container landing-header__inner">
+            <a href="#hero" class="landing-header__logo">
+                <img src="assets/images/danggo-logo.webp" alt="DangGO"
+                    onerror="this.onerror=null; this.src='assets/images/danggo-logo.svg';">
             </a>
-            <div class="header__right">
-                <nav>
-                    <ul class="nav">
-                        <li><a href="#moments">서비스 소개</a></li>
-                        <li><a href="#usage">이용 방법</a></li>
-                        <li><a href="#driver">안전한 이동</a></li>
-                        <li><a href="#review">고객 후기</a></li>
-                    </ul>
-                </nav>
-                <a href="https://apps.apple.com/kr/" class="btn-app">앱 다운로드</a>
-            </div>
+            <nav class="landing-header__nav" aria-label="주요 메뉴">
+                <a href="#moments">활용 방법</a>
+                <a href="#journey">지도</a>
+                <a href="#usage">이용 방법</a>
+                <a href="#driver">안전</a>
+                <a href="#review">후기</a>
+            </nav>
+            <a href="#cta" class="landing-header__cta">앱 다운로드</a>
         </div>
     </header>
 
-    <!-- ============================================================
-         KV
-    ============================================================ -->
-    <section class="kv">
+    <!-- HERO (original yellow KV) -->
+    <section class="kv" id="hero">
         <div class="kv__inner">
             <div class="kv__text">
-                <span class="hero-badge hero-badge--no1">
-                    <span class="hero-badge__trophy emoji" aria-hidden="true">🏆</span>
-                    <span class="hero-badge__text">국내 <strong>1위</strong> 펫택시 앱</span>
-                    <span class="hero-badge__shimmer" aria-hidden="true"></span>
-                </span>
                 <h1 class="kv__title">
-                    <span class="kv__title-line">일상이 <mark class="hl hl--yellow">넓어지는</mark></span><br>
+                    <span class="kv__title-line">일상이 <mark class="hl">넓어지는</mark></span><br>
                     <span class="kv__title-line">반려생활의 <mark class="hl hl--pink">시작</mark></span>
                 </h1>
                 <p class="kv__sub">
                     <span class="kv__sub-line">정기적인 외출부터 특별한 여행까지</span><br>
-                    <span class="kv__sub-line"><strong class="color-primary">댕고</strong>가 함께합니다</span>
+                    <span class="kv__sub-line"><strong class="kv__brand">댕고</strong>가 함께합니다</span>
                 </p>
                 <div class="kv__btns">
                     <a href="#" class="btn-store btn-store--google">
@@ -83,17 +71,30 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         댕고가 필요한 순간들
-    ============================================================ -->
-    <section class="needed-moments section section--light" id="moments">
+    <!-- STORY -->
+    <section class="landing-story" id="story">
         <div class="container">
+            <p class="landing-story__line landing-story__line--muted">택시는 불러도,</p>
+            <p class="landing-story__line">반려동물과 함께 타기는 <span class="landing-hl landing-hl--pink">막막</span>했죠.</p>
+            <p class="landing-story__divider">·</p>
+            <p class="landing-story__line">댕고는 <span class="landing-hl landing-hl--yellow">반려동물 이동</span>만을 위해 만들었어요.</p>
+            <div class="landing-story__card">
+                <b>24시간 긴급출동</b> · <b>30초 예약</b> · <b>전문 드라이버</b> · <b>실시간 위치</b> · <b>이동 리포트</b><br>
+                이동의 모든 순간을 앱 하나로.
+            </div>
+        </div>
+    </section>
+
+    <!-- USE WAYS — 8 categories -->
+    <section class="needed-moments section" id="moments">
+        <div class="container">
+            <p class="section-label text-center">활용 방법</p>
             <h2 class="section-title text-center">댕고가 필요한 순간들</h2>
             <p class="section-sub text-center">
-                장거리건 일상편의 목적별 여정까지, 언제 어디든 든든하게 함께해요
+                장거리건 일상 편의, 목적별 여정까지<br>
+                언제 어디든 든든하게 함께해요
             </p>
 
-            <!-- 카테고리 아이콘 -->
             <div class="moments-categories">
                 <div class="moments-category">
                     <div class="moments-category__icon moments-category__icon--hospital emoji emoji--block">🏥</div>
@@ -113,7 +114,7 @@
                 </div>
                 <div class="moments-category">
                     <div class="moments-category__icon moments-category__icon--shopping emoji emoji--block">🛍️</div>
-                    <span class="moments-category__label">쇼핑 / 귀근</span>
+                    <span class="moments-category__label">쇼핑 / 근교</span>
                 </div>
                 <div class="moments-category">
                     <div class="moments-category__icon moments-category__icon--beach emoji emoji--block">🏖️</div>
@@ -131,11 +132,10 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         반려가족의 지도를 넓혀보세요
-    ============================================================ -->
+    <!-- JOURNEY MAP -->
     <section class="journey-map section" id="journey">
         <div class="container">
+            <p class="section-label text-center">이동 범위</p>
             <h2 class="section-title text-center">반려가족의 지도를 넓혀보세요</h2>
             <p class="section-sub text-center">댕고와 함께라면 더 많은 곳을 경험할 수 있어요</p>
 
@@ -172,17 +172,13 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         댕고는 이렇게 이동해요 (Scroll Feature)
-    ============================================================ -->
-    <section class="trip-flow section section--light" id="usage">
+    <!-- TRIP FLOW (scroll feature) -->
+    <section class="trip-flow section" id="usage">
         <div class="container">
             <div class="trip-flow__header">
-                <span class="trip-flow__badge">03</span>
                 <h2 class="section-title">댕고는 이렇게 이동해요</h2>
-                <p class="section-sub">지도 한눈에, 이동의 모든 순간을 함께해요</p>
+                <p class="section-sub">예약부터 도착까지, 5단계로 안전하게</p>
             </div>
-
             <div class="trip-flow__layout">
                 <div class="trip-flow__steps">
                     <article class="trip-flow__step is-active" data-step="0">
@@ -194,7 +190,6 @@
                             <p class="trip-flow__step-desc">출발지와 도착지, 시간을 선택하면 맞춤 견적과 배차가 진행돼요.</p>
                         </div>
                     </article>
-
                     <article class="trip-flow__step" data-step="1">
                         <div class="trip-flow__step-marker">
                             <span class="trip-flow__step-icon emoji emoji--block" aria-hidden="true">📍</span>
@@ -204,7 +199,6 @@
                             <p class="trip-flow__step-desc">전문 드라이버가 배정되면 카카오톡/앱 알림으로 안내드려요.</p>
                         </div>
                     </article>
-
                     <article class="trip-flow__step" data-step="2">
                         <div class="trip-flow__step-marker">
                             <span class="trip-flow__step-icon emoji emoji--block" aria-hidden="true">🚗</span>
@@ -214,7 +208,6 @@
                             <p class="trip-flow__step-desc">실시간 위치와 예상 도착 시간을 지도에서 확인할 수 있어요.</p>
                         </div>
                     </article>
-
                     <article class="trip-flow__step" data-step="3">
                         <div class="trip-flow__step-marker">
                             <span class="trip-flow__step-icon emoji emoji--block" aria-hidden="true">💬</span>
@@ -224,7 +217,6 @@
                             <p class="trip-flow__step-desc">전화 없이도 앱 채팅으로 드라이버와 편하게 소통할 수 있어요.</p>
                         </div>
                     </article>
-
                     <article class="trip-flow__step" data-step="4">
                         <div class="trip-flow__step-marker">
                             <span class="trip-flow__step-icon emoji emoji--block" aria-hidden="true">🏁</span>
@@ -235,13 +227,12 @@
                         </div>
                     </article>
                 </div>
-
                 <div class="trip-flow__preview">
                     <div class="trip-flow__bubble">
-                        <img src="assets/images/taxi.png" alt="" class="trip-flow__bubble-car" aria-hidden="true">
+                        <img src="assets/images/taxi.png" alt="" class="trip-flow__bubble-car" aria-hidden="true"
+                            onerror="this.style.display='none'">
                         <p>우리 아이만을 위한 전용 차량과 드라이버가 함께해요</p>
                     </div>
-
                     <div class="trip-flow__phone">
                         <div class="trip-flow__phone-notch" aria-hidden="true"></div>
                         <div class="trip-flow__screens">
@@ -265,7 +256,6 @@
                                 </div>
                                 <button type="button" class="app-screen__cta">견적 확인하기</button>
                             </div>
-
                             <div class="app-screen app-screen--dispatch" data-screen="1">
                                 <div class="app-screen__status app-screen__status--success">배차 확정</div>
                                 <div class="app-screen__driver-card">
@@ -279,90 +269,51 @@
                                     <span class="app-screen__notify-icon emoji">🔔</span>
                                     <div>
                                         <p class="app-screen__notify-title">배차가 완료됐어요</p>
-                                        <p class="app-screen__notify-desc">09:10 AM 출발 예정 · 카카오톡으로도 안내드려요</p>
+                                        <p class="app-screen__notify-desc">09:10 AM 출발 예정</p>
                                     </div>
                                 </div>
-                                <div class="app-screen__route-summary">
-                                    <p><strong>출발</strong> 강남구 도산대로 123</p>
-                                    <p><strong>도착</strong> 서초구 반포대로 456</p>
-                                </div>
                             </div>
-
                             <div class="app-screen app-screen--moving" data-screen="2">
                                 <div class="app-screen__map-header">
                                     <span>이동 중</span>
                                     <strong>예상 도착 10:24 AM</strong>
                                 </div>
-                                <div class="app-screen__floating-card">
-                                    <p class="app-screen__floating-title">김댕댕 고객님, 이동이 안전하게 진행 중이에요</p>
-                                    <div class="app-screen__driver-row">
-                                        <div class="app-screen__driver-avatar">이</div>
-                                        <div>
-                                            <p class="app-screen__driver-name">이동호 드라이버</p>
-                                            <p class="app-screen__driver-meta">★ 4.9</p>
-                                        </div>
-                                        <div class="app-screen__driver-actions">
-                                            <span class="emoji">💬</span><span class="emoji">📞</span>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="app-screen__map">
-                                    <div class="app-screen__map-pin app-screen__map-pin--start">출발<br>09:30 AM</div>
+                                    <div class="app-screen__map-pin app-screen__map-pin--start">출발</div>
                                     <div class="app-screen__map-route"></div>
-                                    <img src="assets/images/taxi.png" alt="" class="app-screen__map-car">
-                                    <div class="app-screen__map-pin app-screen__map-pin--end">도착 예정<br>10:24 AM</div>
-                                </div>
-                                <div class="app-screen__trip-info">
-                                    <div class="app-screen__trip-info-head">
-                                        <span>이동 정보</span>
-                                        <span>상세 보기 &gt;</span>
-                                    </div>
-                                    <p><em>출발</em> 서울 강남구 도산대로 123</p>
-                                    <p><em>도착</em> 서울 서초구 반포대로 456</p>
+                                    <div class="app-screen__map-pin app-screen__map-pin--end">도착</div>
                                 </div>
                             </div>
-
                             <div class="app-screen app-screen--chat" data-screen="3">
                                 <div class="app-screen__chat-header">
                                     <div class="app-screen__driver-avatar">이</div>
                                     <div>
                                         <p class="app-screen__driver-name">이동호 드라이버</p>
-                                        <p class="app-screen__driver-meta">이동 중 · 응답 가능</p>
+                                        <p class="app-screen__driver-meta">이동 중</p>
                                     </div>
                                 </div>
                                 <div class="app-screen__chat-body">
                                     <div class="app-screen__chat-bubble app-screen__chat-bubble--driver">
-                                        안녕하세요! 곧 도착할 예정이에요. 아이 상태는 편안해요 <span class="emoji">🐶</span>
+                                        곧 도착할 예정이에요. 아이 상태는 편안해요 <span class="emoji">🐶</span>
                                     </div>
                                     <div class="app-screen__chat-bubble app-screen__chat-bubble--user">
-                                        감사합니다! 도착하면 알려주세요.
+                                        감사합니다!
                                     </div>
-                                    <div class="app-screen__chat-bubble app-screen__chat-bubble--driver">
-                                        네, 도착 10분 전에 다시 안내드릴게요.
-                                    </div>
-                                </div>
-                                <div class="app-screen__chat-input">
-                                    <span>메시지를 입력하세요</span>
-                                    <button type="button">전송</button>
                                 </div>
                             </div>
-
                             <div class="app-screen app-screen--arrival" data-screen="4">
                                 <div class="app-screen__status app-screen__status--success">도착 완료</div>
                                 <div class="app-screen__arrival-hero">
                                     <span class="app-screen__arrival-icon emoji emoji--lg">🎉</span>
                                     <p class="app-screen__arrival-title">안전하게 도착했어요!</p>
-                                    <p class="app-screen__arrival-time">10:24 AM · 서초구 반포대로 456</p>
                                 </div>
                                 <div class="app-screen__report">
                                     <p class="app-screen__report-title">이동 리포트</p>
                                     <ul>
                                         <li>이동 시간 54분</li>
                                         <li>차량 온도 22°C 유지</li>
-                                        <li>중간 휴식 1회 · 사진 3장 첨부</li>
                                     </ul>
                                 </div>
-                                <button type="button" class="app-screen__cta">리포트 자세히 보기</button>
                             </div>
                         </div>
                     </div>
@@ -371,66 +322,39 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         댕고로 확보하는 소중한 시간
-    ============================================================ -->
-    <section class="price-compare section" id="compare">
-        <div class="container">
-            <h2 class="section-title text-center">댕고로 확보하는 소중한 시간</h2>
-            <p class="section-sub text-center">단순한 어디서 어디나, 단계거쳐 목적지 <span style="color: #F5A623; font-weight: 700;">더 많은 시간을 실현해요</span></p>
-
-            <div class="compare-cards">
-                <div class="compare-card compare-card--regular">
-                    <h3 class="compare-card__title">일반 택시 이용 시</h3>
-                    <p class="compare-card__desc">숨막 거부, 대기 시간까지<br>버려지는 시간</p>
-                    <div class="compare-card__time">
-                        <span class="compare-card__number">40</span>
-                        <span class="compare-card__unit">분</span>
+    <!-- COMPARE -->
+    <section class="landing-split landing-split--reverse" id="compare">
+        <div class="container landing-split__inner">
+            <div class="landing-split__copy">
+                <h2 class="landing-split__title">
+                    <span class="landing-hl landing-hl--pink">소중한 시간</span>을<br>
+                    확보하세요
+                </h2>
+                <p class="landing-split__desc">
+                    여러 번 시도하고 기다리는 시간 대신,<br>
+                    예약하고 편안하게 기다리면 돼요.
+                </p>
+                <div class="landing-compare">
+                    <div class="landing-compare__item landing-compare__item--gray">
+                        <p class="landing-compare__label">일반 택시</p>
+                        <p class="landing-compare__num">40<span style="font-size:1rem;opacity:.6">분</span></p>
                     </div>
-                    <div class="compare-card__icon compare-card__icon--clock" aria-hidden="true">
-                        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="50" r="40" fill="#F5F5F5" stroke="#BDBDBD" stroke-width="4"/>
-                            <circle cx="50" cy="50" r="3" fill="#757575"/>
-                            <line x1="50" y1="50" x2="50" y2="25" stroke="#757575" stroke-width="3" stroke-linecap="round"/>
-                            <line x1="50" y1="50" x2="65" y2="50" stroke="#757575" stroke-width="3" stroke-linecap="round"/>
-                            <circle cx="50" cy="15" r="2" fill="#BDBDBD"/>
-                            <circle cx="50" cy="85" r="2" fill="#BDBDBD"/>
-                            <circle cx="15" cy="50" r="2" fill="#BDBDBD"/>
-                            <circle cx="85" cy="50" r="2" fill="#BDBDBD"/>
-                        </svg>
+                    <div class="landing-compare__item landing-compare__item--yellow">
+                        <p class="landing-compare__label">댕고</p>
+                        <p class="landing-compare__num">40<span style="font-size:1rem;opacity:.6">분</span></p>
                     </div>
                 </div>
-
-                <div class="compare-card compare-card--danggo">
-                    <h3 class="compare-card__title" style="color: #F5A623;">댕고 이용 시</h3>
-                    <p class="compare-card__desc">예약하고 도착하지<br>예상되는 시간 단축</p>
-                    <div class="compare-card__time">
-                        <span class="compare-card__number">40</span>
-                        <span class="compare-card__unit">분</span>
-                    </div>
-                    <div class="compare-card__icon compare-card__icon--split">
-                        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="50" r="40" fill="#FFF9E6" stroke="#F5C842" stroke-width="4"/>
-                            <circle cx="50" cy="50" r="3" fill="#F5A623"/>
-                            <line x1="50" y1="50" x2="50" y2="25" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
-                            <line x1="50" y1="50" x2="65" y2="50" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
-                            <circle cx="50" cy="15" r="2" fill="#F5C842"/>
-                            <circle cx="50" cy="85" r="2" fill="#F5C842"/>
-                            <circle cx="15" cy="50" r="2" fill="#F5C842"/>
-                            <circle cx="85" cy="50" r="2" fill="#F5C842"/>
-                        </svg>
-                        <img src="assets/images/taxi.png" alt="댕고 택시" style="width: 130px; margin-left: 20px;">
-                    </div>
+            </div>
+            <div class="landing-split__visual">
+                <div class="landing-placeholder landing-placeholder--split">
+                    <span>Time Compare</span>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- ============================================================
-         활용 사례 (Use Cases)
-    ============================================================ -->
-    <section class="features section" id="features">
+    <!-- USE CASES — 말풍선 토글 -->
+    <section class="features section" id="usecases">
         <div class="container">
             <p class="section-label text-center">활용 사례</p>
             <h2 class="section-title text-center">댕고 택시,<br>이렇게 활용해보세요</h2>
@@ -440,7 +364,6 @@
             </p>
 
             <div class="usecase-stack">
-                <!-- row 1: 긴급상황 -->
                 <div class="usecase-stack__row usecase-stack__row--1">
                     <div class="usecase-card usecase-card--lg usecase-card--dark usecase-card--tail-center">
                         <div class="usecase-card__body">
@@ -451,7 +374,6 @@
                     </div>
                 </div>
 
-                <!-- row 2: 중간 -->
                 <div class="usecase-stack__row usecase-stack__row--2">
                     <div class="usecase-card usecase-card--md usecase-card--white usecase-card--tail-right">
                         <div class="usecase-card__body">
@@ -469,7 +391,6 @@
                     </div>
                 </div>
 
-                <!-- row 3: 작은 카드 -->
                 <div class="usecase-stack__row usecase-stack__row--3">
                     <div class="usecase-card usecase-card--sm usecase-card--white usecase-card--tail-right">
                         <div class="usecase-card__body">
@@ -488,7 +409,6 @@
                 </div>
             </div>
 
-            <!-- 도로 위 중앙 고정 택시 -->
             <div class="usecase-stack__taxi">
                 <img src="assets/images/taxi.png" alt="댕고 택시">
                 <span class="usecase-stack__beam usecase-stack__beam--1"></span>
@@ -497,20 +417,15 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         전문 드라이버 (Driver)
-    ============================================================ -->
+    <!-- DRIVER -->
     <section class="driver section" id="driver">
         <div class="container">
             <p class="section-label text-center">전문 드라이버</p>
             <h2 class="section-title text-center">
                 전문교육을 이수한<br>
-                <span class="color-primary">댕고드라이버</span>를 만나보세요
+                <span class="color-primary">댕고드라이버</span>
             </h2>
-            <p class="section-sub text-center">
-                드라이버 한 분 한 분을 직접 인터뷰하고,<br>
-                검증하여 모셨습니다.
-            </p>
+            <p class="section-sub text-center">드라이버 한 분 한 분을 직접 인터뷰하고 검증했어요</p>
             <div class="driver__layout">
                 <div class="driver__slides">
                     <div class="driver__track">
@@ -583,61 +498,34 @@
                             </div>
                         </div>
                     </div>
-                    <div class="driver__dots" id="driverDots">
-                        <button type="button" class="driver__dot is-active" data-index="0" aria-label="드라이버 1"></button>
-                        <button type="button" class="driver__dot"           data-index="1" aria-label="드라이버 2"></button>
-                        <button type="button" class="driver__dot"           data-index="2" aria-label="드라이버 3"></button>
-                        <button type="button" class="driver__dot"           data-index="3" aria-label="드라이버 4"></button>
+                    <div class="driver__dots">
+                        <button type="button" class="driver__dot is-active" data-index="0" aria-label="1"></button>
+                        <button type="button" class="driver__dot" data-index="1" aria-label="2"></button>
+                        <button type="button" class="driver__dot" data-index="2" aria-label="3"></button>
+                        <button type="button" class="driver__dot" data-index="3" aria-label="4"></button>
                     </div>
                 </div>
                 <div class="driver__content">
                     <ul class="driver__checklist">
                         <li>
-                            <span class="check-icon">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="14" cy="14" r="14" fill="#DCFCE7" />
-                                    <path d="M8 14.5L12 18.5L20 10.5" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </span>
+                            <span class="check-icon">✓</span>
                             <div>
                                 <strong>반려견 전문 교육</strong>
                                 <p>선발된 드라이버들은 전문 교육을 이수해요.</p>
                             </div>
                         </li>
                         <li>
-                            <span class="check-icon">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="14" cy="14" r="14" fill="#DCFCE7" />
-                                    <path d="M8 14.5L12 18.5L20 10.5" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </span>
+                            <span class="check-icon">✓</span>
                             <div>
                                 <strong>안전 운전 인증</strong>
                                 <p>올바른 반려동물 이동을 위한 안전 교육을 받아요.</p>
                             </div>
                         </li>
                         <li>
-                            <span class="check-icon">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="14" cy="14" r="14" fill="#DCFCE7" />
-                                    <path d="M8 14.5L12 18.5L20 10.5" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </span>
+                            <span class="check-icon">✓</span>
                             <div>
                                 <strong>응급 처치 교육 이수</strong>
                                 <p>반려동물 응급상황에 즉시 대응할 수 있어요.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="check-icon">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="14" cy="14" r="14" fill="#DCFCE7" />
-                                    <path d="M8 14.5L12 18.5L20 10.5" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </span>
-                            <div>
-                                <strong>능동적인 서비스 개선</strong>
-                                <p>좋은 후기를 바탕으로 기사님들께 인센티브를 제공해요.</p>
                             </div>
                         </li>
                     </ul>
@@ -646,15 +534,13 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         고객 후기 (Review)
-    ============================================================ -->
+    <!-- REVIEW -->
     <section class="review section" id="review">
         <div class="container">
             <p class="section-label text-center">고객 후기</p>
             <h2 class="section-title text-center">
                 댕고는 수많은 분들의<br>
-                <span class="color-point">신뢰를 받고 있어요</span>
+                <span class="color-point">신뢰</span>를 받고 있어요
             </h2>
             <div class="review-stats">
                 <div class="review-stat">
@@ -674,12 +560,10 @@
                     <span class="review-stat__value review-stat__value--point">98%</span>
                 </div>
             </div>
-
             <div class="review-marquee">
                 <div class="review-cards">
-                    <!-- 원본 4장 -->
                     <div class="review-card">
-                        <img class="review-card__img" src="assets/images/card/reviewcard04.png" alt="리뷰 이미지 1">
+                        <img class="review-card__img" src="assets/images/card/reviewcard04.webp" alt="구름이 리뷰">
                         <div class="review-card__body">
                             <div class="review-card__header">
                                 <p class="review-card__name">구름이</p>
@@ -691,7 +575,7 @@
                         </div>
                     </div>
                     <div class="review-card">
-                        <img class="review-card__img" src="assets/images/card/reviewcard01.png" alt="리뷰 이미지 2">
+                        <img class="review-card__img" src="assets/images/card/reviewcard01.webp" alt="두비 리뷰">
                         <div class="review-card__body">
                             <div class="review-card__header">
                                 <p class="review-card__name">두비</p>
@@ -703,7 +587,7 @@
                         </div>
                     </div>
                     <div class="review-card">
-                        <img class="review-card__img" src="assets/images/card/reviewcard06.png" alt="리뷰 이미지 3">
+                        <img class="review-card__img" src="assets/images/card/reviewcard06.webp" alt="하나 리뷰">
                         <div class="review-card__body">
                             <div class="review-card__header">
                                 <p class="review-card__name">하나</p>
@@ -715,7 +599,7 @@
                         </div>
                     </div>
                     <div class="review-card">
-                        <img class="review-card__img" src="assets/images/card/reviewcard05.png" alt="리뷰 이미지 4">
+                        <img class="review-card__img" src="assets/images/card/reviewcard05.webp" alt="호두 리뷰">
                         <div class="review-card__body">
                             <div class="review-card__header">
                                 <p class="review-card__name">호두</p>
@@ -727,9 +611,8 @@
                         </div>
                     </div>
 
-                    <!-- 무한 루프용 복제본 (aria-hidden) -->
                     <div class="review-card" aria-hidden="true">
-                        <img class="review-card__img" src="assets/images/card/reviewcard03.png" alt="">
+                        <img class="review-card__img" src="assets/images/card/reviewcard03.webp" alt="">
                         <div class="review-card__body">
                             <div class="review-card__header">
                                 <p class="review-card__name">마루</p>
@@ -741,7 +624,7 @@
                         </div>
                     </div>
                     <div class="review-card" aria-hidden="true">
-                        <img class="review-card__img" src="assets/images/card/reviewcard07.png" alt="">
+                        <img class="review-card__img" src="assets/images/card/reviewcard07.webp" alt="">
                         <div class="review-card__body">
                             <div class="review-card__header">
                                 <p class="review-card__name">둥둥이</p>
@@ -753,7 +636,7 @@
                         </div>
                     </div>
                     <div class="review-card" aria-hidden="true">
-                        <img class="review-card__img" src="assets/images/card/reviewcard05.png" alt="">
+                        <img class="review-card__img" src="assets/images/card/reviewcard02.webp" alt="">
                         <div class="review-card__body">
                             <div class="review-card__header">
                                 <p class="review-card__name">코코</p>
@@ -765,7 +648,7 @@
                         </div>
                     </div>
                     <div class="review-card" aria-hidden="true">
-                        <img class="review-card__img" src="assets/images/card/reviewcard04.png" alt="">
+                        <img class="review-card__img" src="assets/images/card/reviewcard04.webp" alt="">
                         <div class="review-card__body">
                             <div class="review-card__header">
                                 <p class="review-card__name">마루 보호자</p>
@@ -781,46 +664,38 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         지금 시작하기 (CTA)
-    ============================================================ -->
-    <section class="cta">
+    <!-- CLOSING CTA -->
+    <section class="landing-hero landing-hero--closing" id="cta">
         <div class="container">
-            <div class="cta__inner">
-                <div class="cta__text">
-                    <h3 class="cta__title">
-                        당신의 반려생활, 댕고와 함께 더 넓어지세요
-                    </h3>
-                    <p class="cta__sub">앱 다운로드하고 편리하고 안전한 이동을 경험하세요</p>
-                    <div class="cta__btns">
-                        <a href="#" class="btn-store btn-store--google">
-                            <img src="assets/images/icon/googleplay.png" alt="">
-                            Google Play
-                        </a>
-                        <a href="#" class="btn-store btn-store--apple">
-                            <img src="assets/images/icon/appstore.png" alt="">
-                            App Store
-                        </a>
-                    </div>
+            <p class="landing-hero__tagline">당신의 반려생활,</p>
+            <h2 class="landing-hero__title">
+                댕고와 함께 <span class="landing-hl landing-hl--yellow">더 넓어지세요</span>
+            </h2>
+            <p class="landing-hero__sub">앱 다운로드하고 편리하고 안전한 이동을 경험하세요</p>
+            <div class="landing-hero__visual">
+                <img src="assets/images/main-mockup.png" alt="댕고 앱"
+                    class="landing-split__phone landing-img"
+                    onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+                <div class="landing-placeholder landing-placeholder--phone" hidden>
+                    <span>App Mockup</span>
                 </div>
-                <div class="cta__mockup">
-                    <img src="assets/images/main-mockup.png" alt="댕고 앱 목업">
-                </div>
+            </div>
+            <div class="landing-download">
+                <a href="#" class="landing-download__btn">Google Play</a>
+                <a href="#" class="landing-download__btn">App Store</a>
             </div>
         </div>
     </section>
 
-    <!-- ============================================================
-         FOOTER
-    ============================================================ -->
     <footer class="footer">
         <div class="container footer__inner">
             <div class="footer__top">
                 <a href="#" class="footer__logo">
-                    <img src="assets/images/danggo-logo-w.webp" alt="DangGO">
+                    <img src="assets/images/danggo-logo-w.webp" alt="DangGO"
+                        onerror="this.onerror=null; this.src='assets/images/danggo-logo.svg';">
                 </a>
                 <div class="footer__info">
-                    <p>대표이사 | 최신비</p>
+                    <p>대표이사 | 이다운 </p>
                     <p>사업자등록번호 | 312-86-02847</p>
                     <p>통신판매업 신고번호 | 제 2023-서울마포-0471호</p>
                     <p>동물운송업 등록번호 | 제4110000-024-2023-0009호</p>
@@ -839,7 +714,6 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>

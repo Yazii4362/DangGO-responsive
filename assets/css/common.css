@@ -231,6 +231,11 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
 h1, h2, h3, h4 {
     font-family: var(--font-headline);
     font-weight: var(--fw-extrabold);
@@ -262,6 +267,19 @@ p { font-size: var(--fs-b1); line-height: 1.6; }
 
 .section {
     padding-block: var(--sp-section);
+}
+
+.section--light {
+    background-color: #F9F7F4;
+}
+
+.section--light .section-title,
+.section--light .section-sub {
+    color: #1E1E1E;
+}
+
+.section--light .section-sub {
+    opacity: 0.6;
 }
 
 
